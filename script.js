@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach(card => {
         // Explicity toggle flip class for consistent mobile tapping
         card.addEventListener('click', () => {
+            card.setAttribute('data-interacted', 'true'); // Flag manual touch override
             card.classList.toggle('flipped');
         });
 
@@ -19,6 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.remove('flipped'); // Safety reset
         });
     });
+
+    // 2. Mobile Auto-Flip Intersection Observer
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Only auto-flip if the user hasn't explicitly tapped it yet
+                if (!entry.target.hasAttribute('data-interacted')) {
+                    if (entry.isIntersecting) {
+                        // Dynamically flip to reveal the back when scrolled into focus
+                        entry.target.classList.add('flipped');
+                    } else {
+                        // Reset it quietly when scrolling away
+                        entry.target.classList.remove('flipped');
+                    }
+                }
+            });
+        }, { threshold: 0.6 }); // Trigger exactly when 60% of the card crosses into the screen
+
+        cards.forEach(card => observer.observe(card));
+    }
 
     // 3. Parallax Canvas Particles setup
     const canvas = document.getElementById('particles-canvas');
