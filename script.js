@@ -41,6 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
         cards.forEach(card => observer.observe(card));
     }
 
+    // 1b. Frozen Cards 3D Tilt Hover Logic
+    const frozenCards = document.querySelectorAll('.frozen-card-inner');
+    frozenCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Calculate organic tilt 
+            const tiltX = -(y / rect.height) * 15; // Max 15deg
+            const tiltY = (x / rect.width) * 15;
+            
+            card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            card.parentElement.classList.remove('flipped'); // Safety for mobile emulated states
+        });
+
+        // Safe Mobile tap interaction binding
+        card.addEventListener('click', () => {
+            card.parentElement.classList.toggle('flipped');
+        });
+    });
+
     // 3. Parallax Canvas Particles setup
     const canvas = document.getElementById('particles-canvas');
     if(canvas) {
