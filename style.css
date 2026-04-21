@@ -189,11 +189,8 @@ nav a:hover {
 }
 
 .product-card {
-    perspective: 1200px; /* Increased for deeper flip feel */
-    height: 580px; /* Taller, elegant card ratio */
-    max-width: 380px; /* Prevents card from stretching into a square on wide screens */
-    margin: 0 auto;
-    width: 100%;
+    perspective: 1000px;
+    height: 480px;
     cursor: pointer;
 }
 
@@ -204,52 +201,8 @@ nav a:hover {
     text-align: center;
     transition: transform 0.7s ease-out;
     transform-style: preserve-3d;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.3); /* Stronger shadow to define the card against slate */
-    border-radius: 40px; /* High-end aggressive curve */
-    overflow: hidden; /* Strict clipping for children like images */
-}
-
-/* Reset front for raw image display */
-.card-front {
-    padding: 0;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Visible edge definition */
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: 40px;
-}
-
-/* Move glass and text styling to the back side */
-.card-back {
-    transform: rotateY(180deg);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: background-color 0.8s, border-color 0.8s;
-}
-
-/* Special theme colors now apply to the back side content */
-.product-card[data-target-theme="cardamom"] .card-back {
-    background: rgba(144, 180, 148, 0.25);
-    border-color: rgba(107, 142, 35, 0.3);
-    color: #f0e6d2;
-}
-
-.product-card[data-target-theme="pepper"] .card-back {
-    background: rgba(40, 40, 40, 0.6);
-    border-color: rgba(212, 175, 55, 0.3);
-    color: #f0e6d2; 
-}
-
-.product-card[data-target-theme="pepper"] .card-inner {
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-
-.product-card[data-target-theme="honey"] .card-back {
-    background: rgba(210, 140, 70, 0.25);
-    border-color: rgba(184, 115, 51, 0.3);
-    color: #f0e6d2;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border-radius: 24px;
 }
 
 /* Flip trigger on hover OR manual flipped class for mobile touch */
@@ -276,7 +229,7 @@ nav a:hover {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 40px; /* Matching the inner and front */
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -285,10 +238,73 @@ nav a:hover {
     overflow: hidden;
 }
 
+.card-front {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.8s, border-color 0.8s;
+}
+
+/* Permanent nice colors for each card to replace basic white */
+.product-card[data-target-theme="cardamom"] .card-front {
+    background: rgba(144, 180, 148, 0.25);
+    border-color: rgba(107, 142, 35, 0.3);
+    color: #f0e6d2;
+}
+
+.product-card[data-target-theme="pepper"] .card-front {
+    background: rgba(40, 40, 40, 0.6);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: #f0e6d2; /* Light text for better contrast */
+}
+
+.product-card[data-target-theme="pepper"] .card-inner {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.product-card[data-target-theme="honey"] .card-front {
+    background: rgba(210, 140, 70, 0.25);
+    border-color: rgba(184, 115, 51, 0.3);
+    color: #f0e6d2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    padding: 0; 
+}
+
 .product-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.card-back-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: #f0e6d2;
+    text-align: center;
+}
+
+.card-back-overlay h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-back-overlay .subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* Include back overlay in the glow effect */
+.product-card:hover .card-back-overlay h2,
+.product-card:hover .card-back-overlay h3 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(240, 230, 210, 0.5);
 }
 
 .card-front h2 {
