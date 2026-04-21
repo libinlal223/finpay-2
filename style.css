@@ -204,17 +204,19 @@ nav a:hover {
     text-align: center;
     transition: transform 0.7s ease-out;
     transform-style: preserve-3d;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-    border-radius: 24px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3); /* Stronger shadow to define the card against slate */
+    border-radius: 40px; /* High-end aggressive curve */
+    overflow: hidden; /* Strict clipping for children like images */
 }
 
 /* Reset front for raw image display */
 .card-front {
     padding: 0;
     background: transparent;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Visible edge definition */
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    border-radius: 40px;
 }
 
 /* Move glass and text styling to the back side */
@@ -274,7 +276,7 @@ nav a:hover {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 24px;
+    border-radius: 40px; /* Matching the inner and front */
     display: flex;
     flex-direction: column;
     align-items: center;
