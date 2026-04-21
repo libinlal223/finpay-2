@@ -205,7 +205,8 @@ nav a:hover {
     border-radius: 24px;
 }
 
-/* Allow strictly manual/mobile script trigger to flip */
+/* Flip trigger on hover OR manual flipped class for mobile touch */
+.product-card:hover .card-inner,
 .product-card.flipped .card-inner {
     transform: rotateY(180deg);
 }
