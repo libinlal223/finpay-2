@@ -37,6 +37,7 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Cravelo', 'cravelo', sans-serif !important;
 }
 
 body {
@@ -250,6 +251,7 @@ nav a:hover {
 .product-card[data-target-theme="cardamom"] .card-front {
     background: rgba(144, 180, 148, 0.25);
     border-color: rgba(107, 142, 35, 0.3);
+    color: #f0e6d2;
 }
 
 .product-card[data-target-theme="pepper"] .card-front {
@@ -265,6 +267,7 @@ nav a:hover {
 .product-card[data-target-theme="honey"] .card-front {
     background: rgba(210, 140, 70, 0.25);
     border-color: rgba(184, 115, 51, 0.3);
+    color: #f0e6d2;
 }
 
 .card-back {
