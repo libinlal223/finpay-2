@@ -189,8 +189,11 @@ nav a:hover {
 }
 
 .product-card {
-    perspective: 1000px;
-    height: 480px;
+    perspective: 1200px; /* Increased for deeper flip feel */
+    height: 580px; /* Taller, elegant card ratio */
+    max-width: 380px; /* Prevents card from stretching into a square on wide screens */
+    margin: 0 auto;
+    width: 100%;
     cursor: pointer;
 }
 
