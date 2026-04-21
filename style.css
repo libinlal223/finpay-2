@@ -239,39 +239,40 @@ nav a:hover {
 }
 
 .card-front {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0; /* Full bleed for image */
     transition: background-color 0.8s, border-color 0.8s;
 }
 
 /* Permanent nice colors for each card to replace basic white */
-.product-card[data-target-theme="cardamom"] .card-front {
-    background: rgba(144, 180, 148, 0.25);
+.product-card[data-target-theme="cardamom"] .card-back {
+    background: rgba(144, 180, 148, 0.4);
     border-color: rgba(107, 142, 35, 0.3);
     color: #f0e6d2;
 }
 
-.product-card[data-target-theme="pepper"] .card-front {
-    background: rgba(40, 40, 40, 0.6);
+.product-card[data-target-theme="pepper"] .card-back {
+    background: rgba(40, 40, 40, 0.8);
     border-color: rgba(212, 175, 55, 0.3);
-    color: #f0e6d2; /* Light text for better contrast */
+    color: #f0e6d2;
 }
 
 .product-card[data-target-theme="pepper"] .card-inner {
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-.product-card[data-target-theme="honey"] .card-front {
-    background: rgba(210, 140, 70, 0.25);
+.product-card[data-target-theme="honey"] .card-back {
+    background: rgba(210, 140, 70, 0.4);
     border-color: rgba(184, 115, 51, 0.3);
     color: #f0e6d2;
 }
 
 .card-back {
     transform: rotateY(180deg);
-    padding: 0; 
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .product-img {
@@ -280,30 +281,9 @@ nav a:hover {
     object-fit: cover;
 }
 
-.card-back-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-    color: #f0e6d2;
-    text-align: center;
-}
-
-.card-back-overlay h2 {
-    font-size: 1.6rem;
-    margin-bottom: 0.2rem;
-}
-
-.card-back-overlay .subtitle {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-}
-
-/* Include back overlay in the glow effect */
-.product-card:hover .card-back-overlay h2,
-.product-card:hover .card-back-overlay h3 {
+/* Include back side in the glow effect */
+.product-card:hover .card-back h2,
+.product-card:hover .card-back h3 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(240, 230, 210, 0.5);
 }
 
