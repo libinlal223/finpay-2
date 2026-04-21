@@ -168,31 +168,41 @@ nav a:hover {
 
 /* Product Suite */
 .product-suite {
+    position: relative;
     padding: 10rem 2rem;
     min-height: 100vh;
-    transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out;
+    background: url('asset/frozen_bg.png') no-repeat center center/cover;
+    background-attachment: fixed;
+    transition: color 0.8s ease-in-out;
+}
+
+/* Theme Mask Engine */
+.product-suite::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    transition: background-color 0.8s ease-in-out;
+    opacity: 0.85; /* Allows the cinematic slate texture to continuously bleed through */
+    z-index: 0;
+}
+
+.product-grid {
+    position: relative;
+    z-index: 10;
 }
 
 /* Smooth background morph based on theme data-theme attributes mapped to JS */
-.product-suite[data-theme="default"] {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-}
+.product-suite[data-theme="default"]::before { background-color: var(--bg-color); }
+.product-suite[data-theme="default"] { color: var(--text-primary); }
 
-.product-suite[data-theme="cardamom"] {
-    background-color: var(--cardamom-bg);
-    color: var(--cardamom-text);
-}
+.product-suite[data-theme="cardamom"]::before { background-color: var(--cardamom-bg); }
+.product-suite[data-theme="cardamom"] { color: var(--cardamom-text); }
 
-.product-suite[data-theme="pepper"] {
-    background-color: var(--pepper-bg);
-    color: var(--pepper-text);
-}
+.product-suite[data-theme="pepper"]::before { background-color: var(--pepper-bg); }
+.product-suite[data-theme="pepper"] { color: var(--pepper-text); }
 
-.product-suite[data-theme="honey"] {
-    background-color: var(--honey-bg);
-    color: var(--honey-text);
-}
+.product-suite[data-theme="honey"]::before { background-color: var(--honey-bg); }
+.product-suite[data-theme="honey"] { color: var(--honey-text); }
 
 /* Glass Panels */
 .product-grid {
@@ -424,6 +434,7 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     background: url('asset/frozen_bg.png') no-repeat center center/cover;
+    background-attachment: fixed; /* Continuously locked from Spices section */
     overflow: hidden;
 }
 
@@ -432,9 +443,9 @@ nav a:hover {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    /* Flawlessly transitions the top dark theme into the chilled background while deepening edge contrast */
-    background: linear-gradient(180deg, var(--bg-color) 0%, rgba(17, 17, 17, 0.4) 40%, rgba(17, 17, 17, 0.8) 100%);
-    z-index: 1;
+    /* Softly darkens to emphasize text without severing visual scroll continuity */
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.5) 40%, rgba(17, 17, 17, 0.8) 100%);
+    z-index: 0;
 }
 
 /* Top Half: Confirmed Dual-Showcase */
