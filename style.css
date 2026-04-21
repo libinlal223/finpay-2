@@ -760,3 +760,38 @@ nav a:hover {
         padding: 2rem;
     }
 }
+
+/* Global Smart Highlight Interaction */
+h1, h2, h3, p, span {
+    position: relative;
+    z-index: 1; /* Standard flow layer */
+}
+
+h1::after, h2::after, h3::after, p::after, span::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; width: 100%; height: 100%;
+    /* Graceful Spices Gold */
+    background: linear-gradient(90deg, rgba(255,215,0,0) 0%, rgba(255,215,0,0.2) 20%, rgba(255,215,0,0.2) 80%, rgba(255,215,0,0) 100%);
+    z-index: -1; /* Placed exactly under the text */
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+    pointer-events: none; /* Never blocks highlighting or clicks */
+}
+
+/* Frozen Override -> Ice Tint */
+.frozen-collection h1::after, .frozen-collection h2::after, .frozen-collection h3::after, .frozen-collection p::after, .frozen-collection span::after {
+    background: linear-gradient(90deg, rgba(224,247,250,0) 0%, rgba(224,247,250,0.3) 20%, rgba(224,247,250,0.3) 80%, rgba(224,247,250,0) 100%);
+}
+
+/* Hover Trigger */
+h1:hover::after, h2:hover::after, h3:hover::after, p:hover::after, span:hover::after {
+    animation: smartHighlightPulse 0.9s ease-out forwards;
+}
+
+@keyframes smartHighlightPulse {
+    0% { transform: scaleX(0); opacity: 0; }
+    11% { transform: scaleX(1); opacity: 1; } /* Instantly draws left-to-right (0.1s) */
+    100% { transform: scaleX(1); opacity: 0; } /* Slowly completely un-glows (0.8s) keeping layout clean */
+}
