@@ -24,29 +24,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardTimers = new Map();
 
     cards.forEach(card => {
-        const flipCard = () => {
-            // Cancel any pending auto-flip-back timer when user manually taps
+        let isProcessing = false;
+
+        const flipCard = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            if (isProcessing) return;
+            isProcessing = true;
+
+            // Cancel any pending auto-flip-back timer when user manually interacts
             if (cardTimers.has(card)) {
                 clearTimeout(cardTimers.get(card));
                 cardTimers.delete(card);
             }
+            
             card.classList.toggle('flipped');
+            
+            // Re-enable after transition completes
+            setTimeout(() => { isProcessing = false; }, 300);
         };
 
-        if (isMobile) {
-            // Precise touch: only flip if finger didn't move (not a scroll)
-            let touchMoved = false;
-            card.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
-            card.addEventListener('touchmove', () => { touchMoved = true; }, { passive: true });
-            card.addEventListener('touchend', (e) => {
-                if (!touchMoved) {
-                    e.stopPropagation();
-                    flipCard();
-                }
+        // Unified click handler handles touch and mouse correctly on modern browsers
+        card.addEventListener('click', flipCard);
+        
+        // Desktop-only hover reset
+        if (!isMobile) {
+            card.addEventListener('mouseleave', () => {
+                if (cardTimers.has(card)) return; // Don't interfere with auto-timer
+                card.classList.remove('flipped');
             });
-        } else {
-            card.addEventListener('click', (e) => { e.stopPropagation(); flipCard(); });
-            card.addEventListener('mouseleave', () => { card.classList.remove('flipped'); });
         }
     });
 
@@ -92,22 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
             card.parentElement.classList.remove('flipped'); // Safety for mobile emulated states
         });
 
-        // Mobile tap on frozen card — stop propagation to avoid triggering product card
+        // Unified click for both mobile and desktop
         card.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             card.parentElement.classList.toggle('flipped');
         });
-        if (isMobile) {
-            let ft = false;
-            card.addEventListener('touchstart', () => { ft = false; }, { passive: true });
-            card.addEventListener('touchmove', () => { ft = true; }, { passive: true });
-            card.addEventListener('touchend', (e) => {
-                if (!ft) {
-                    e.stopPropagation();
-                    card.parentElement.classList.toggle('flipped');
-                }
-            });
-        }
     });
 
     // 3. Parallax Canvas Particles setup

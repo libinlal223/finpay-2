@@ -852,8 +852,8 @@ main {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        margin-left: 68px; /* clear: 10px logo-left + 44px logo-width + 14px gap */
-        width: calc(100% - 68px);
+        padding-left: 130px; /* absolute clearance for 100px logo + 10px spacing + 20px buffer */
+        width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -878,8 +878,8 @@ main {
 
     /* Scrolled: logo sits above the navbar blur, left of HOME */
     #MainLogo.scrolled {
-        width: 44px;
-        top: 1px;
+        width: 100px; /* Large and clear */
+        top: -2px;
         left: 10px;
         transform: translate(0, 0);
         opacity: 1;
