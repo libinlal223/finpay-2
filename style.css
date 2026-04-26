@@ -170,6 +170,12 @@ main {
     background-attachment: fixed; /* Explicitly fixed as requested */
     animation: gentleSlowZoom 25s infinite alternate ease-in-out;
     z-index: 1; /* Set to 1 as requested */
+    /* Quality enhancements */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform;
+    filter: contrast(1.1) brightness(1.02) saturate(1.1);
 }
 
 /* Base fade overlay so the next section blends natively into the deepest part of the valley */
