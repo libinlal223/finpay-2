@@ -77,11 +77,10 @@ h3,
     transform: translate(-50%, -50%);
     width: 950px; /* Fills the misty valley focal point */
     z-index: 100;
-    /* Blend into the atmospheric fog — soft opacity + ethereal haze glow */
-    opacity: 0.82;
-    filter:
-        drop-shadow(0 0 30px rgba(220, 200, 170, 0.45))
-        drop-shadow(0 0 70px rgba(255, 240, 200, 0.2));
+    /* Blend into the atmospheric background perfectly */
+    opacity: 0.9;
+    mix-blend-mode: multiply; /* Multiplies the logo colors over the sunset sky seamlessly */
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.15)); /* Soft natural shadow instead of intense glow */
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                 top 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                 left 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -97,6 +96,7 @@ h3,
     left: 20px;
     transform: translate(0, 0);
     opacity: 1;
+    mix-blend-mode: normal; /* Revoke multiply when pinned to navbar */
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }
 
@@ -889,7 +889,7 @@ main {
     /* ── MAIN LOGO MOBILE ── */
     #MainLogo {
         width: 90vw;
-        top: 35%; /* Shifted higher into the empty sky on mobile too */
+        top: 18%; /* Placed significantly higher in the empty sky */
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -901,6 +901,7 @@ main {
         left: 10px;
         transform: translate(0, 0);
         opacity: 1;
+        mix-blend-mode: normal; /* Revoke multiply in navbar */
         z-index: 200; /* well above navbar (100) and its blur */
         filter: none;
     }
