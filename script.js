@@ -364,11 +364,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const startX = direction === 'right' ? -100 : 100;
                 const endX = direction === 'right' ? 100 : -100;
 
-                gsap.set(nextSlide, { xPercent: startX, autoAlpha: 1 });
+                // Start the next slide scaled down and faded
+                gsap.set(nextSlide, { xPercent: startX, scale: 0.85, autoAlpha: 0 });
 
                 const tl = gsap.timeline({
                     onComplete: () => {
-                        gsap.set(currentSlide, { autoAlpha: 0 });
                         currentSlide.classList.remove('active');
                         nextSlide.classList.add('active');
                         currentSlideIndex = nextIndex;
@@ -376,12 +376,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
 
-                // Linear-Ease Push-Slide
-                const ease = 'none'; // Linear constant speed
-                const duration = 0.5; // Crisp, sharp timing
+                // Smooth, dynamic, and soothing ease
+                const ease = 'power3.inOut'; 
+                const duration = 1.0; // Slightly longer for a luxurious feel
 
-                tl.to(currentSlide, { xPercent: endX, duration, ease }, 0);
-                tl.to(nextSlide, { xPercent: 0, duration, ease }, 0);
+                // Current slide pushes out, shrinks slightly, and fades
+                tl.to(currentSlide, { 
+                    xPercent: endX, 
+                    scale: 0.85,
+                    autoAlpha: 0,
+                    duration, 
+                    ease 
+                }, 0);
+
+                // Next slide sweeps in, scales up to full size, and fades in
+                tl.to(nextSlide, { 
+                    xPercent: 0, 
+                    scale: 1,
+                    autoAlpha: 1,
+                    duration, 
+                    ease 
+                }, 0);
             };
 
             rightBtn.addEventListener('click', () => {
