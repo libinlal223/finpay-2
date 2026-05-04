@@ -373,55 +373,20 @@ main {
     display: none;
 }
 
-/* Golden Vintage Frame */
+/* Golden Vintage Frame via Image */
 .golden-frame {
     position: absolute;
-    top: 2.5rem;
-    left: 2.5rem;
-    right: 2.5rem;
-    bottom: 2.5rem;
-    border: 1px solid #D4AF37;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    background: url('asset/golden_frame.png') no-repeat center center;
+    background-size: 100% 100%; /* Stretches to frame the section elegantly */
+    mix-blend-mode: multiply; /* Blends the white background out, leaving only the beautiful dark gold frame */
     pointer-events: none;
     z-index: 10;
+    opacity: 0.95;
 }
-
-/* Inner thin border */
-.golden-frame::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-/* Elegant filigree corner emulation */
-.golden-frame .corner {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #D4AF37;
-    background: #ffffff; /* to block out the frame borders underneath */
-}
-/* Curly borders using border-radius */
-.golden-frame .corner.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; border-top-left-radius: 30px; }
-.golden-frame .corner.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; border-top-right-radius: 30px; }
-.golden-frame .corner.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; border-bottom-left-radius: 30px; }
-.golden-frame .corner.br { bottom: -2px; right: -2px; border-left: none; border-top: none; border-bottom-right-radius: 30px; }
-
-/* Inner corner accents (diamonds) */
-.golden-frame .dot {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #D4AF37;
-    transform: rotate(45deg); /* Diamond shape */
-}
-.golden-frame .dot.d-tl { top: 22px; left: 22px; }
-.golden-frame .dot.d-tr { top: 22px; right: 22px; }
-.golden-frame .dot.d-bl { bottom: 22px; left: 22px; }
-.golden-frame .dot.d-br { bottom: 22px; right: 22px; }
 
 /* Clean content pane without the box */
 #StoryCard {
