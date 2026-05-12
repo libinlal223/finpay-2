@@ -444,26 +444,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 'return');
             };
 
-            let swapInterval = setInterval(swap, delay);
-            
-            // Allow clicking to swap immediately
+            // Allow clicking to swap manually
             container.addEventListener('click', () => {
-                clearInterval(swapInterval);
-                if (currentTl && isSwapping) {
-                    currentTl.progress(1); // fast forward current swap if any
-                }
+                // To prevent visual bugs, we ignore clicks if an animation is currently playing
+                if (isSwapping) return; 
                 swap();
-                swapInterval = setInterval(swap, delay);
-            });
-            
-            // Pause on hover
-            container.addEventListener('mouseenter', () => {
-                if(currentTl) currentTl.pause();
-                clearInterval(swapInterval);
-            });
-            container.addEventListener('mouseleave', () => {
-                if(currentTl) currentTl.play();
-                swapInterval = setInterval(swap, delay);
             });
         }
 
