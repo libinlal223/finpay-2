@@ -955,7 +955,7 @@ main {
     /* ── NAVBAR MOBILE ── */
     .navbar {
         padding: 0.55rem 0.6rem; /* NO left padding — we use margin on nav instead */
-        justify-content: flex-start;
+        justify-content: flex-end;
         align-items: center;
         flex-wrap: nowrap;
         gap: 0;
@@ -966,7 +966,7 @@ main {
     nav {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: flex-start;
+        justify-content: flex-end;
         align-items: center;
         padding-left: 100px; /* absolute clearance for 80px logo + 20px buffer */
         width: 100%;
