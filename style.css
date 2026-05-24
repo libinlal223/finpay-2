@@ -442,8 +442,9 @@ main {
     bottom: 2rem;
     border: 2px solid #1e3f20; /* Changed to brand forest green */
     pointer-events: none;
-    z-index: 10;
+    z-index: 2; /* Position behind content, but above section background */
     box-shadow: 0 0 15px rgba(30, 63, 32, 0.15);
+    background: url('asset/hero_latest.webp') no-repeat center center/cover; /* Matching parchment hero background */
 }
 
 .golden-frame::before {
@@ -531,6 +532,7 @@ main {
 
 /* Clean content pane without the box */
 #StoryCard {
+    position: relative; /* Essential for z-index layering above frame background */
     padding: 0; /* Removed extra spacing */
     max-width: 1000px;
     text-align: center; /* Reverted to center-aligned text */
