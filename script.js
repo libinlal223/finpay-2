@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainLogo = document.getElementById('MainLogo');
     const storyCard = document.getElementById('StoryCard');
     const heroBg = document.querySelector('.hero-bg-layer');
+    const heroBrandDetails = document.getElementById('HeroBrandDetails');
 
     window.addEventListener('scroll', () => {
         const scrollThreshold = 100; // Trigger after 100px scroll
@@ -144,9 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Logo and Story Card Transitions
         if (scrollPos > scrollThreshold) {
             mainLogo.classList.add('scrolled');
+            if (heroBrandDetails) heroBrandDetails.classList.add('scrolled');
             storyCard.classList.add('revealed');
         } else {
             mainLogo.classList.remove('scrolled');
+            if (heroBrandDetails) heroBrandDetails.classList.remove('scrolled');
             storyCard.classList.remove('revealed');
         }
 

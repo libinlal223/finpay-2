@@ -73,10 +73,10 @@ h3,
 /* Scroll-Linked Animation Assets */
 #MainLogo {
     position: fixed;
-    top: 45%; 
+    top: 36%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px; /* Increased size to fit the empty sketch background beautifully */
+    width: 480px; /* Perfectly scaled to match reference image composition */
     z-index: 100;
     mix-blend-mode: normal;
     opacity: 1;
@@ -109,6 +109,75 @@ h3,
     border-radius: 0;
     padding: 0;
     box-shadow: none;
+}
+
+/* Brand taglines & details centered beautifully on the vintage sketch empty space */
+.hero-brand-details {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    pointer-events: none;
+    color: #1e3f20; /* Dark forest green color matched to the peacock logo */
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.hero-brand-details.scrolled {
+    opacity: 0;
+    transform: translate(-50%, -30px); /* Elegant upward fade out on scroll */
+}
+
+.hero-subtitle-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.hero-subtitle-divider .line {
+    height: 1px;
+    width: 80px;
+    background-color: #1e3f20;
+    opacity: 0.5;
+}
+
+.hero-subtitle-divider .subtitle-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #1e3f20;
+}
+
+.hero-divider-ornament {
+    margin: 8px 0 16px 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    color: #b38f53; /* Elegant accent gold color */
+}
+
+.hero-tagline {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-style: italic;
+    opacity: 0.95;
+    color: #2b3a2b;
+}
+
+.hero-tagline p {
+    margin: 4px 0;
 }
 
 /* Navbar (Blended) */
@@ -1080,9 +1149,28 @@ main {
 @media(max-width: 480px) {
     #MainLogo {
         width: 85vw;
-        max-width: 340px;
-        top: 35%;
+        max-width: 320px;
+        top: 28%;
         left: 50%;
+    }
+
+    .hero-brand-details {
+        top: 48%;
+        width: 95%;
+    }
+    
+    .hero-subtitle-divider .subtitle-text {
+        font-size: 0.9rem;
+        letter-spacing: 0.2em;
+    }
+    
+    .hero-subtitle-divider .line {
+        width: 40px;
+    }
+    
+    .hero-tagline {
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
     #MainLogo.scrolled {
