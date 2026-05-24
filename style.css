@@ -73,8 +73,8 @@ h3,
 /* Scroll-Linked Animation Assets */
 #MainLogo {
     position: fixed;
-    top: 35%; 
-    left: 25%; /* Placed on the empty space on the left side */
+    top: 45%; 
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 320px; /* Adjusted down from 800px because the transparent margins were cropped */
     z-index: 100;
@@ -1081,7 +1081,8 @@ main {
     #MainLogo {
         width: 65vw;
         max-width: 200px;
-        top: 22%;
+        top: 35%;
+        left: 50%;
     }
 
     #MainLogo.scrolled {
