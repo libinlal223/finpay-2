@@ -76,7 +76,7 @@ h3,
     top: 36%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 580px; /* Expanded to perfectly match and align with the block sentence width below it */
+    width: 460px; /* Aligned exactly to match the width of the tagline line below it */
     z-index: 100;
     mix-blend-mode: normal;
     opacity: 1;
@@ -122,7 +122,7 @@ h3,
     align-items: center;
     text-align: center;
     width: 90%;
-    max-width: 580px; /* Aligned exactly to matching boundaries of the MainLogo above it */
+    max-width: 460px; /* Match the exact width of the MainLogo above it */
     opacity: 1;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                 transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1148,8 +1148,8 @@ main {
 /* Extra-small phones (< 480px) */
 @media(max-width: 480px) {
     #MainLogo {
-        width: 90vw;
-        max-width: 360px;
+        width: 250px;
+        max-width: 250px;
         top: 28%;
         left: 50%;
     }
@@ -1157,7 +1157,7 @@ main {
     .hero-brand-details {
         top: 48%;
         width: 90vw;
-        max-width: 360px;
+        max-width: 250px;
     }
     
     .hero-subtitle-divider .subtitle-text {
