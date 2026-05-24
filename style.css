@@ -420,7 +420,7 @@ main {
     padding: 6rem 4rem; /* Balanced padding for elegant margins */
     position: relative;
     overflow: hidden;
-    background-color: #DCCFB0; /* Set to the rich parchment tone requested */
+    background-color: #faf6ee; /* Beautiful warm light cream color from mockup */
 }
 
 /* Background image overlay */
@@ -445,7 +445,7 @@ main {
     z-index: 2; /* Position behind content, but above section background */
     box-shadow: 0 12px 40px rgba(30, 63, 32, 0.1);
     background-image: url('asset/hero_latest.webp');
-    background-color: #DCCFB0; /* Blend background with requested parchment tone */
+    background-color: #faf6ee; /* Match the warm cream tone of the mockup */
     background-blend-mode: multiply; /* Keeps illustrations crisp while tinting parchment */
     background-repeat: no-repeat;
     background-position: center center;
