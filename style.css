@@ -582,6 +582,7 @@ main {
 
 /* Shiny Text Effects ported from React Bits to pure CSS */
 .shiny-text-effect {
+    font-family: inherit !important;
     display: inline-block;
     -webkit-background-clip: text;
     background-clip: text;
