@@ -730,11 +730,13 @@ main {
 }
 
 .swap-info-item h2 {
-    font-size: 3.8rem;
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 5rem;
     color: #fff;
     margin-bottom: 1.5rem;
     line-height: 1.1;
     text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    font-weight: normal;
 }
 
 .swap-info-item p {
@@ -794,6 +796,7 @@ main {
 }
 
 .global-coming-soon {
+    font-family: 'Playfair Display', serif !important;
     font-size: 2.5rem;
     font-weight: 700;
     text-transform: uppercase;
