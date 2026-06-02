@@ -1274,11 +1274,18 @@ main {
         font-size: 1rem;
     }
     
+    .frozen-collection {
+        padding: 5rem 1rem 3rem 1rem;
+        min-height: auto;
+    }
+
     .global-coming-soon {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         letter-spacing: 2px;
         white-space: nowrap;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 50;
     }
 
     /* Frozen Section Stack */
