@@ -1,0 +1,101 @@
+
+export default function FinPaySettlementsSection() {
+  return (
+    <section className="relative w-full min-h-screen text-[#e8f0ee] py-20 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black">
+
+      <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center justify-between min-h-[85vh] gap-12">
+
+        {/* ========================================================= */}
+        {/* HEADER                                                    */}
+        {/* ========================================================= */}
+        <div className="text-center w-full max-w-[900px] mt-4">
+
+          <h2 className="font-['Outfit'] font-black text-[clamp(2.2rem,5vw,4.2rem)] leading-none tracking-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
+            ABOUT  FINPAY
+          </h2>
+        </div>
+
+        {/* ========================================================= */}
+        {/* MAIN LAYOUT (Overlapping Text columns and centered image) */}
+        {/* ========================================================= */}
+        <div className="w-full relative min-h-[60vh] flex items-center justify-center my-auto">
+
+          {/* Centered Image Layer (z-index 10) */}
+          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+            <div className="w-full max-w-[520px] md:max-w-[700px] aspect-square flex items-center justify-center opacity-25 md:opacity-75 transition-opacity duration-300">
+              <img
+                src="/set12.png"
+                alt="Settlements Graphic"
+                className="w-full h-full object-contain select-none pointer-events-none"
+              />
+            </div>
+          </div>
+
+          {/* Interactive Text Columns Layer (z-index 20) */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-center justify-center z-20 relative px-4 md:px-8 xl:px-12 pointer-events-none">
+
+            {/* LEFT SIDE: Developers/Platform Features */}
+            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto transform translate-x-[40px]">
+
+              {/* Item 01 */}
+              <div className="flex gap-4 items-start group">
+                <div>
+
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px]">
+                    FINPAY is a global digital payment and settlement solutions <br className="hidden md:inline" /> provider specializing in stablecoin- <br className="hidden md:inline" /> based financial infrastructure and international support.
+                  </p>
+                </div>
+              </div>
+              <br />
+              {/* Item 02 */}
+              <div className="flex gap-4 items-start group">
+                <div>
+
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px]">
+                    We help businesses simplify cross-border payments, <br className="hidden md:inline" /> merchant settlements, and multi-currency exchange <br className="hidden md:inline" /> operations through secure and efficient USDT-based solutions.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* CENTER EMPTY SPACER FOR OVERLAY */}
+            <div className="hidden md:block col-span-4 h-full pointer-events-none" />
+
+            {/* RIGHT SIDE: Enterprise/Ecosystem Features */}
+            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto text-right transform -translate-x-[40px]">
+              <div className="mb-2">
+
+              </div>
+
+              {/* Item 01 */}
+              <div className="flex gap-4 items-start justify-end group">
+                <div>
+                  <br /><br />
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] ml-auto">
+                    Our services are designed for businesses <br /> requiring faster settlements, international payment <br /> flexibility, and scalable operations.
+                  </p>
+                </div>
+              </div>
+              <br />
+              {/* Item 02 */}
+              <div className="flex gap-4 items-start justify-end group">
+                <div>
+
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] ml-auto">
+                    FINPAY supports merchants, e-commerce, <br className="hidden md:inline" /> and trading partners with reliable <br className="hidden md:inline" /> payment collection systems and global currency exchange capabilities.
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section >
+  );
+}

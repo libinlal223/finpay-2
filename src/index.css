@@ -149,7 +149,6 @@ canvas {
 /* Orbit Container Structure */
 .orbit-container {
   position: relative;
-  animation: simple-spin 80s linear infinite;
   pointer-events: none;
 }
 
@@ -162,12 +161,13 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: reverse-node-spin 80s linear infinite;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
 }
 
 /* Hover effects for nodes (removed glassmorphism) */
 .orbit-node:hover {
-  transform: translate(-50%, -50%) scale(1.1) rotate(var(--current-rotation, 0deg));
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* Node Positioning (Mobile) */
