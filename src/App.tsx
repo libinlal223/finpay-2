@@ -11,6 +11,7 @@ import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import Subpage from './components/Subpage';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
+import Navbar from './components/Navbar';
 
 const FRAME_COUNT = 192;
 
@@ -207,10 +208,9 @@ export default function App() {
       {/* Main Experience */}
       <div className="bg-[#050505] text-white w-full">
 
-        {/* Permanent Top Left Logo */}
-        <div className="fixed top-6 left-6 z-50 pointer-events-none" style={{ transform: 'translateZ(0)' }}>
-          <img src="/logo.png" alt="Finpay Logo" style={{ width: '80px', height: 'auto', opacity: 0.95 }} />
-        </div>
+
+        {/* Spotlight Navigation Bar */}
+        <Navbar scrollYProgress={scrollYProgress} />
 
         {/* FIXED MAIN CONTAINER */}
         <motion.div className="fixed inset-0 w-full h-screen z-10 pointer-events-none" style={{ display: fixedLayerDisplay }}>
@@ -521,19 +521,35 @@ export default function App() {
         </motion.div>
 
         {/* DUMMY SCROLL TRACK for the 3D Animation */}
-        <div ref={scrollTrackRef} className="relative z-0 h-[1600vh] pointer-events-none"></div>
+        <div id="home" ref={scrollTrackRef} className="relative z-0 h-[1600vh] pointer-events-none"></div>
 
         {/* SECTION 06 & 07 (Combined container in normal website flow) */}
         <div className="relative z-20 w-full bg-black pointer-events-auto">
-          <FinPaySettlementsSection />
-          <WhyChooseUsSection />
-          <FinPayExchangeServicesSection />
-          <FinPayCollectionSettlementSection />
-          <FinPayMultiCurrencyExchangeSection />
-          <FinPayBusinessSolutionsSection />
-          <FinPayOperationalSupportSection />
-          <GlobalPaymentsMap />
-          <FAQSection />
+          {/* About Section Group */}
+          <div id="about" className="w-full">
+            <FinPaySettlementsSection />
+            <WhyChooseUsSection />
+          </div>
+
+          {/* Services Section Group */}
+          <div id="services" className="w-full">
+            <FinPayExchangeServicesSection />
+            <FinPayCollectionSettlementSection />
+            <FinPayMultiCurrencyExchangeSection />
+          </div>
+
+          {/* Solutions Section Group */}
+          <div id="solutions" className="w-full">
+            <FinPayBusinessSolutionsSection />
+            <FinPayOperationalSupportSection />
+            <GlobalPaymentsMap />
+          </div>
+
+          {/* FAQ Section Group */}
+          <div id="faq" className="w-full">
+            <FAQSection />
+          </div>
+
           <Footer />
         </div>
       </div>
