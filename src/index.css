@@ -560,4 +560,14 @@ canvas {
   box-shadow: 0 12px 40px rgba(0, 230, 167, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Utility to hide scrollbar while keeping scrolling active */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+
 

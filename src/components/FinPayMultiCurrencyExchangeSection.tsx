@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Globe, Zap } from 'lucide-react';
-import { Circle } from "lucide-react";
 
 export default function FinPayMultiCurrencyExchangeSection() {
   return (

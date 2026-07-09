@@ -35,15 +35,18 @@ export default function App() {
   const [floatEnabled, setFloatEnabled] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const s6ScrollRef = useRef<HTMLDivElement>(null);
+  const scrollTrackRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: scrollTrackRef,
+    offset: ["start start", "end end"]
+  });
 
   // Mappings for total document height
   const rawFrameIndex1 = useTransform(scrollYProgress, [0, 0.35], [1, FRAME_COUNT]);
   const smoothFrameIndex1 = useSpring(rawFrameIndex1, { stiffness: 400, damping: 40, restDelta: 0.5 });
 
-  const rawFrameIndex2 = useTransform(scrollYProgress, [0.35, 0.65], [1, FRAME_COUNT]);
+  const rawFrameIndex2 = useTransform(scrollYProgress, [0.35, 0.90], [1, FRAME_COUNT]);
   const smoothFrameIndex2 = useSpring(rawFrameIndex2, { stiffness: 400, damping: 40, restDelta: 0.5 });
 
   const seq1Opacity = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
@@ -128,15 +131,10 @@ export default function App() {
   useMotionValueEvent(smoothFrameIndex2, "change", () => renderCanvas(scrollYProgress.get()));
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     renderCanvas(latest);
-    if (latest >= 0.68 && !floatEnabled) {
+    if (latest >= 0.90 && !floatEnabled) {
       setFloatEnabled(true);
-    } else if (latest < 0.68 && floatEnabled) {
+    } else if (latest < 0.90 && floatEnabled) {
       setFloatEnabled(false);
-    }
-
-    // Reset Section 06 scroll position to top when not fully at the end
-    if (latest < 0.99 && s6ScrollRef.current) {
-      s6ScrollRef.current.scrollTop = 0;
     }
   });
 
@@ -163,18 +161,16 @@ export default function App() {
   const s4Opacity = useTransform(scrollYProgress, [0.21, 0.225, 0.26, 0.27], [0, 1, 1, 0]);
   const s4Y = useTransform(scrollYProgress, [0.21, 0.225, 0.26, 0.27], [24, 0, 0, -24]);
 
-  // Section 05 (USDT Exchange UI - Fades out before the last section)
-  const s5Opacity = useTransform(scrollYProgress, [0.68, 0.72, 0.81, 0.84], [0, 1, 1, 0]);
-  const s5Y = useTransform(scrollYProgress, [0.68, 0.72, 0.81, 0.84], [24, 0, 0, -24]);
-  const s5PointerEvents = useTransform(scrollYProgress, (progress) => progress >= 0.7 && progress <= 0.81 ? "auto" as const : "none" as const);
+  // Section 05 (USDT Exchange UI - stays visible until covered)
+  const s5Opacity = useTransform(scrollYProgress, [0.90, 0.94], [0, 1]);
+  const s5Y = useTransform(scrollYProgress, [0.90, 0.94], [24, 0]);
+  const s5PointerEvents = useTransform(scrollYProgress, (progress) => progress >= 0.92 ? "auto" as const : "none" as const);
 
-  // Section 06 & 07 (Combined scrollable container in normal website flow)
-  const s6Opacity = useTransform(scrollYProgress, [0.84, 0.87], [0, 1]);
-  const s6PointerEvents = useTransform(scrollYProgress, (progress) => progress >= 0.85 ? "auto" as const : "none" as const);
 
-  // Fade out the globe background when transitioning to Section 06
-  const globeOpacity = useTransform(scrollYProgress, [0.80, 0.83], [1, 0]);
-  const globeDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.83 ? "none" as const : "block" as const);
+  // Hide the entire fixed layer (globe + all overlays) once past the spacer
+  const fixedLayerDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.999 ? "none" as const : "block" as const);
+  const globeOpacity = 1;
+  const globeDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.999 ? "none" as const : "block" as const);
 
   const nodes = [
     // Left Column (wavy, organic)
@@ -211,13 +207,13 @@ export default function App() {
       {/* Main Experience */}
       <div className="bg-[#050505] text-white w-full">
 
-        {/* FIXED MAIN CONTAINER */}
-        <div className="fixed inset-0 w-full h-screen z-10 pointer-events-none">
+        {/* Permanent Top Left Logo */}
+        <div className="fixed top-6 left-6 z-50 pointer-events-none" style={{ transform: 'translateZ(0)' }}>
+          <img src="/logo.png" alt="Finpay Logo" style={{ width: '80px', height: 'auto', opacity: 0.95 }} />
+        </div>
 
-          {/* Permanent Top Left Logo */}
-          <div className="absolute top-6 left-6 z-50 pointer-events-none" style={{ transform: 'translateZ(0)' }}>
-            <img src="/logo.png" alt="Finpay Logo" style={{ width: '80px', height: 'auto', opacity: 0.95 }} />
-          </div>
+        {/* FIXED MAIN CONTAINER */}
+        <motion.div className="fixed inset-0 w-full h-screen z-10 pointer-events-none" style={{ display: fixedLayerDisplay }}>
 
           {/* Canvas Background (Globe) */}
           <motion.div 
@@ -522,28 +518,24 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* SECTION 06 & 07 (Combined scrollable container in normal website flow) */}
-          <motion.div
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{ opacity: s6Opacity, pointerEvents: s6PointerEvents }}
-          >
-            <div ref={s6ScrollRef} className="w-full h-full pointer-events-auto overflow-y-auto">
-              <FinPaySettlementsSection />
-              <WhyChooseUsSection />
-              <FinPayExchangeServicesSection />
-              <FinPayCollectionSettlementSection />
-              <FinPayMultiCurrencyExchangeSection />
-              <FinPayBusinessSolutionsSection />
-              <FinPayOperationalSupportSection />
-              <GlobalPaymentsMap />
-              <FAQSection />
-              <Footer />
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
 
         {/* DUMMY SCROLL TRACK for the 3D Animation */}
-        <div className="relative z-0 h-[1600vh] pointer-events-none"></div>
+        <div ref={scrollTrackRef} className="relative z-0 h-[1600vh] pointer-events-none"></div>
+
+        {/* SECTION 06 & 07 (Combined container in normal website flow) */}
+        <div className="relative z-20 w-full bg-black pointer-events-auto">
+          <FinPaySettlementsSection />
+          <WhyChooseUsSection />
+          <FinPayExchangeServicesSection />
+          <FinPayCollectionSettlementSection />
+          <FinPayMultiCurrencyExchangeSection />
+          <FinPayBusinessSolutionsSection />
+          <FinPayOperationalSupportSection />
+          <GlobalPaymentsMap />
+          <FAQSection />
+          <Footer />
+        </div>
       </div>
     </>
   );
