@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { WorldMap } from "./ui/world-map";
+import WorldMap from "./ui/world-map";
 
 export default function GlobalPaymentsMap() {
   return (

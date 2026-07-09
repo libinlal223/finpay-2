@@ -7,10 +7,25 @@ import FinPayMultiCurrencyExchangeSection from './components/FinPayMultiCurrency
 import FinPayBusinessSolutionsSection from './components/FinPayBusinessSolutionsSection';
 import FinPayOperationalSupportSection from './components/FinPayOperationalSupportSection';
 import GlobalPaymentsMap from './components/GlobalPaymentsMap';
+import FAQSection from './components/FAQSection';
+import Footer from './components/Footer';
+import Subpage from './components/Subpage';
 
 const FRAME_COUNT = 192;
 
 export default function App() {
+  const [currentRoute, setCurrentRoute] = useState(window.location.hash || '#home');
+
+  useEffect(() => {
+    const handleHash = () => {
+      setCurrentRoute(window.location.hash || '#home');
+    };
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  const isSubpage = ['#docs', '#security', '#privacy', '#terms', '#support'].includes(currentRoute);
+
   const [loadedCount, setLoadedCount] = useState(0);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [globeImages, setGlobeImages] = useState<HTMLImageElement[]>([]);
@@ -172,6 +187,10 @@ export default function App() {
     { code: 'INR', cx: '103%', cy: '58%' },
     { code: 'AED', cx: '110%', cy: '83%' }
   ];
+
+  if (isSubpage) {
+    return <Subpage route={currentRoute} />;
+  }
 
   return (
     <>
@@ -515,6 +534,8 @@ export default function App() {
               <FinPayBusinessSolutionsSection />
               <FinPayOperationalSupportSection />
               <GlobalPaymentsMap />
+              <FAQSection />
+              <Footer />
             </div>
           </motion.div>
         </div>
