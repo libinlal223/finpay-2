@@ -15,7 +15,10 @@ export default function FinPayCollectionSettlementSection() {
 
           {/* LEFT COLUMN: Text Header & Feature Cards shifted 70px to the right */}
           <div className="col-span-6 flex flex-col gap-6 md:gap-8 text-left w-full pl-[70px]">
-
+            <br />
+            <br />
+            <br />
+            <br />
             {/* Header info */}
             <div className="flex flex-col gap-3">
               <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">

@@ -9,6 +9,14 @@ export default function FinPayExchangeServicesSection() {
         {/* ========================================================= */}
         <div className="text-center w-full mt-4">
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.5rem,5vw,3.8rem)] tracking-tight leading-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
             GLOBAL PAYMENT SOLUTIONS
           </h2>
