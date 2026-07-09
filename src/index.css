@@ -535,3 +535,29 @@ canvas {
   }
 }
 
+/* Premium Feature Cards for Multi-Currency Exchange Section */
+.premium-feature-card {
+  position: relative !important;
+  border-radius: 20px !important;
+  background: rgba(0, 230, 167, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 230, 167, 0.15) !important;
+  padding: 16px 20px !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 230, 167, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+  text-decoration: none !important;
+}
+
+.premium-feature-card:hover {
+  border-color: rgba(0, 230, 167, 0.4) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 230, 167, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+

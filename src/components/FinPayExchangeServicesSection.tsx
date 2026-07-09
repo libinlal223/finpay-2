@@ -1,14 +1,15 @@
 export default function FinPayExchangeServicesSection() {
   return (
-    <section className="relative w-full min-h-screen text-[#e8f0ee] py-20 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative w-full min-h-[65vh] text-[#e8f0ee] py-22 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
 
-      <div className="max-w-[1400px] w-full mx-auto relative z-10 flex flex-col items-center justify-between min-h-[85vh] gap-12">
+      <div className="max-w-[1400px] w-full mx-auto relative z-10 flex flex-col items-center justify-between min-h-[60vh] gap-12">
 
         {/* ========================================================= */}
         {/* HEADER                                                    */}
         {/* ========================================================= */}
         <div className="text-center w-full mt-4">
-          <h2 className="font-['Outfit'] font-black text-[clamp(2.2rem,5vw,4.2rem)] leading-none tracking-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
+          <br />
+          <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.5rem,5vw,3.8rem)] tracking-tight leading-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
             GLOBAL PAYMENT SOLUTIONS
           </h2>
         </div>
@@ -31,7 +32,7 @@ export default function FinPayExchangeServicesSection() {
           <div className="col-span-6 flex flex-col gap-6 text-left w-full">
 
             <div className="flex flex-col gap-2">
-              <span className="font-mono text-[0.75rem] md:text-[0.8rem] font-bold tracking-[0.3em] text-[#00E6A7]/80 uppercase">
+              <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
                 SERVICE 01
               </span>
               <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.0rem,4vw,3.0rem)] text-white leading-tight tracking-wide">

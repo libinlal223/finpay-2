@@ -2,16 +2,16 @@ import { ShoppingCart, Cpu, Factory, Network, Layers } from 'lucide-react';
 
 export default function FinPayBusinessSolutionsSection() {
   return (
-    <section className="relative w-full min-h-screen text-[#e8f0ee] py-24 px-6 md:px-10 lg:px-16 xl:px-24 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative w-full min-h-[50vh] text-[#e8f0ee] py-10 px-6 md:px-10 lg:px-16 xl:px-24 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
 
       {/* Background radial gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00E6A7]/3 blur-[120px] rounded-full z-0 pointer-events-none"></div>
 
-      <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[80vh] gap-12">
+      <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[45vh] gap-12">
 
         {/* Header Block */}
         <div className="flex flex-col items-center text-center max-w-[800px] mx-auto w-full">
-          <span className="font-mono text-[0.75rem] md:text-[0.8rem] font-bold tracking-[0.3em] text-[#00E6A7]/80 uppercase block terminal-text-glow mb-3">
+          <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
             SERVICE 04
           </span>
           <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.2rem,4vw,3.2rem)] text-white leading-tight tracking-wide mb-4">

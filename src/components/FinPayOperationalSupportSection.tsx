@@ -14,6 +14,9 @@ export default function FinPayOperationalSupportSection() {
           <span className="font-mono text-[0.75rem] md:text-[0.8rem] font-bold tracking-[0.3em] text-[#00E6A7]/80 uppercase block terminal-text-glow mb-3">
 
           </span>
+          <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
+            SERVICE 05
+          </span>
           <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.2rem,4vw,3.2rem)] text-white leading-tight tracking-wide">
             Payment Gateway Onboarding
           </h2>
@@ -62,8 +65,9 @@ export default function FinPayOperationalSupportSection() {
               <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
                 E-Commerce Businesses
               </h3>
+              <br />
               <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Scalable global checkout and automated merchant settlement
+                Frictionless global checkout and automated merchant payouts
               </p>
             </div>
 
@@ -89,8 +93,9 @@ export default function FinPayOperationalSupportSection() {
               <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
                 Digital Merchants
               </h3>
+              <br />
               <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Seamless API integrations for digital goods and subscriptions
+                Powerful developer APIs for subscription and SaaS billing
               </p>
             </div>
 
@@ -116,8 +121,9 @@ export default function FinPayOperationalSupportSection() {
               <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
                 International Suppliers
               </h3>
+              <br />
               <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                B2B payment processing and supply chain financing
+                High-volume B2B payments and flexible supply chain financing
               </p>
             </div>
 
@@ -143,8 +149,9 @@ export default function FinPayOperationalSupportSection() {
               <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
                 Global Payment Operations
               </h3>
+              <br />
               <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Multi-entity treasury control and payment routing
+                Multi-entity treasury control and automated smart routing
               </p>
             </div>
 
@@ -170,9 +177,9 @@ export default function FinPayOperationalSupportSection() {
               <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
                 Cross-Border Enterprises
               </h3>
+              <br />
               <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Unified global scale cross-border payments & FX management
-              </p>
+                Enterprise-grade global payouts with real-time FX management.            </p>
             </div>
           </div>
 

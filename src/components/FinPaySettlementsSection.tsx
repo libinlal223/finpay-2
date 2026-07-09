@@ -10,9 +10,10 @@ export default function FinPaySettlementsSection() {
         {/* ========================================================= */}
         <div className="text-center w-full max-w-[900px] mt-4">
 
-          <h2 className="font-['Outfit'] font-black text-[clamp(2.2rem,5vw,4.2rem)] leading-none tracking-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
-            ABOUT  FINPAY
+          <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.5rem,5vw,3.8rem)] tracking-tight leading-tight mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
+            About  Finpay
           </h2>
+
         </div>
 
         {/* ========================================================= */}

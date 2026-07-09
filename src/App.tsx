@@ -10,6 +10,7 @@ import GlobalPaymentsMap from './components/GlobalPaymentsMap';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import Subpage from './components/Subpage';
+import WhyChooseUsSection from './components/WhyChooseUsSection';
 
 const FRAME_COUNT = 192;
 
@@ -528,6 +529,7 @@ export default function App() {
           >
             <div ref={s6ScrollRef} className="w-full h-full pointer-events-auto overflow-y-auto">
               <FinPaySettlementsSection />
+              <WhyChooseUsSection />
               <FinPayExchangeServicesSection />
               <FinPayCollectionSettlementSection />
               <FinPayMultiCurrencyExchangeSection />

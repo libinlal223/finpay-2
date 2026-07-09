@@ -81,7 +81,7 @@ export default function FAQSection() {
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between text-left cursor-pointer py-[22px] transition-opacity duration-200 hover:opacity-85"
                 >
-                  <span className="font-['Outfit'] font-semibold text-[20px] text-white leading-snug">
+                  <span className="font-['Outfit'] font-semibold text-[18px] text-white leading-snug">
                     {item.question}
                   </span>
                   <div

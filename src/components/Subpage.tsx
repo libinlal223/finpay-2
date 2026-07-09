@@ -4,7 +4,7 @@ interface SubpageProps {
   route: string;
 }
 
-export default function Subpage({ route }: SubpageProps) {
+export default function Subpage({ route: _route }: SubpageProps) {
   return (
     <div className="min-h-screen bg-[#000000] flex flex-col items-center justify-center relative z-50">
       <motion.a 

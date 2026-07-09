@@ -4,12 +4,12 @@ import { Circle } from "lucide-react";
 
 export default function FinPayMultiCurrencyExchangeSection() {
   return (
-    <section className="relative w-full min-h-screen text-[#e8f0ee] py-20 px-6 md:px-10 lg:px-16 xl:px-24 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
+    <section className="relative w-full min-h-[50vh] text-[#e8f0ee] py-10 px-6 md:px-10 lg:px-16 xl:px-24 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
 
       {/* Background radial gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00E6A7]/3 blur-[120px] rounded-full z-0 pointer-events-none"></div>
 
-      <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[80vh] gap-12">
+      <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[45vh] gap-12">
 
         {/* Main Grid Layout - side-by-side on all viewports */}
         <div className="w-full grid grid-cols-12 gap-8 md:gap-12 items-center my-auto">
@@ -33,7 +33,7 @@ export default function FinPayMultiCurrencyExchangeSection() {
               ].map(({ id, diameter, duration, reverse, code, startAngle }) => (
                 <div
                   key={id}
-                  className={`absolute rounded-full border border-[#00E6A7]/10 pointer-events-none ${id % 2 === 0 ? 'border-dashed' : ''
+                  className={`absolute rounded-full border border-[#00E6A7]/25 pointer-events-none ${id % 2 === 0 ? 'border-dashed' : ''
                     }`}
                   style={{ width: `${diameter}px`, height: `${diameter}px` }}
                 >
@@ -79,18 +79,18 @@ export default function FinPayMultiCurrencyExchangeSection() {
 
             {/* Header info */}
             <div className="flex flex-col gap-3">
-              <span className="font-mono text-[0.75rem] md:text-[0.8rem] font-bold tracking-[0.3em] text-[#00E6A7]/80 uppercase block terminal-text-glow">
+              <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
                 SERVICE 03
               </span>
               <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.0rem,4vw,3.0rem)] text-white leading-tight tracking-wide">
                 Multi Currency Exchange
               </h2>
             </div>
-
+            <br />
             <p className="font-['Sora'] text-[0.88rem] md:text-[0.95rem] leading-relaxed text-zinc-400 tracking-wide max-w-[500px]">
               A global network built exchange USDT into multiple international currencies with competitive rates and reliable processing.
             </p>
-            <br />
+
             <div className="flex flex-col gap-2 mt-1 max-w-[500px]">
               <span className="font-['Outfit'] font-bold text-[0.85rem] md:text-[0.9rem] text-zinc-200 uppercase tracking-widest text-[#00E6A7]/80 block">
                 Supported Currencies
@@ -113,7 +113,6 @@ export default function FinPayMultiCurrencyExchangeSection() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Circle className="w-2 h-2 fill-emerald-400 text-emerald-400 flex-shrink-0" />
                       <span className="font-['Outfit'] text-[0.85rem] md:text-[0.9rem] font-medium text-zinc-300 group-hover/item:text-white transition-colors duration-300">
                         {name}
                       </span>
@@ -125,10 +124,10 @@ export default function FinPayMultiCurrencyExchangeSection() {
             </div>
             <br />
             {/* Vertical Stack of Horizontal Cards with spacious design and thin borders */}
-            <div className="flex flex-col gap-6 w-full max-w-[540px] mt-8">
+            <div className="flex flex-col w-full max-w-[480px] mt-8">
 
               {/* Card 1: Global Reach */}
-              <div className="relative rounded-xl border border-zinc-800/50 bg-[#0c0c0c]/40 backdrop-blur-sm p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.03),0_4px_24px_rgba(0,0,0,0.5)] hover:border-[#00E6A7]/30 hover:shadow-[0_0_24px_rgba(0,230,167,0.04)] transition-all duration-300 group flex items-center gap-6">
+              <div className="premium-feature-card group">
 
                 {/* Left Side Icon Badge - transparent inside with border outline */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-full border border-[#00E6A7]/30 bg-black/40 flex items-center justify-center text-[#00E6A7] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_12px_rgba(0,230,167,0.2)] group-hover:scale-105 transition-all duration-300">
@@ -145,9 +144,8 @@ export default function FinPayMultiCurrencyExchangeSection() {
                 </div>
 
               </div>
-              <br />
               {/* Card 2: Optimized Spreads */}
-              <div className="relative rounded-xl border border-zinc-800/50 bg-[#0c0c0c]/40 backdrop-blur-sm p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.03),0_4px_24px_rgba(0,0,0,0.5)] hover:border-[#00E6A7]/30 hover:shadow-[0_0_24px_rgba(0,230,167,0.04)] transition-all duration-300 group flex items-center gap-6">
+              <div className="premium-feature-card group">
 
                 {/* Left Side Icon Badge - transparent inside with border outline */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-full border border-[#00E6A7]/30 bg-black/40 flex items-center justify-center text-[#00E6A7] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_12px_rgba(0,230,167,0.2)] group-hover:scale-105 transition-all duration-300">
