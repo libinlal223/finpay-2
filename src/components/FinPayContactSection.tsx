@@ -51,6 +51,7 @@ export default function FinPayContactSection() {
           align-items: center;
           justify-content: center;
           padding: 112px 24px;
+          box-sizing: border-box;
         }
         .contact-container {
           width: 100%;
@@ -60,21 +61,30 @@ export default function FinPayContactSection() {
           grid-template-columns: 1fr;
           gap: 48px;
           align-items: center;
+          box-sizing: border-box;
         }
         @media (min-width: 1024px) {
           .contact-container {
-            grid-template-columns: 38% 62%;
+            grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
             gap: 64px;
           }
         }
         .contact-left {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          text-align: left;
-          width: 100%;
-          margin-top: -140px;
-          margin-left: -60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding-right: 24px;
+        box-sizing: border-box;
+        }
+
+        @media (max-width: 1023px) {
+          .contact-left {
+            padding-right: 0;
+          }
         }
         .contact-label {
           font-family: 'Rosehot', monospace !important;
@@ -102,23 +112,30 @@ export default function FinPayContactSection() {
           flex-direction: column;
           gap: 24px;
           width: 100%;
+          min-width: 0;
+
         }
         .contact-card {
           position: relative;
-          border-radius: 24px;
-          background-color: rgba(10, 10, 10, 0.95);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          padding: 32px;
-          height: 160px;
-          width: 100%;
           display: flex;
           flex-direction: row;
-          gap: 24px;
           align-items: flex-start;
-          text-align: left;
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          gap: 24px;
+
+          width: 100%;
+          min-width: 0;
+          height: 160px;
+
+          padding: 32px;
           box-sizing: border-box;
+
+          border-radius: 24px;
+          background: rgba(10,10,10,.95);
+          border: 1px solid rgba(255,255,255,.08);
+
+          box-shadow: 0 12px 32px rgba(0,0,0,.4);
+
+          transition: .35s cubic-bezier(.16,1,.3,1);
         }
         .contact-card-icon-wrapper {
           flex-shrink: 0;
@@ -198,9 +215,9 @@ export default function FinPayContactSection() {
           <span className="contact-label">
             GET IN TOUCH
           </span>
-          <h2 className="shiny-text font-['Outfit'] font-[800] text-[clamp(2.5rem,5vw,3.5rem)] leading-[1.0] tracking-[-0.04em] contact-heading">
+          <h3 className="shiny-text font-['Outfit'] font-[800] text-[clamp(2.2rem,4vw,3rem)] leading-[1.05] tracking-[-0.03em] contact-heading">
             Need Assistance?
-          </h2>
+          </h3>
           <p className="contact-desc">
             Our support team is available to help you with account setup, transactions and operational queries.
           </p>
