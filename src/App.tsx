@@ -6,6 +6,7 @@ import FinPayCollectionSettlementSection from './components/FinPayCollectionSett
 import FinPayMultiCurrencyExchangeSection from './components/FinPayMultiCurrencyExchangeSection';
 import FinPayBusinessSolutionsSection from './components/FinPayBusinessSolutionsSection';
 import FinPayOperationalSupportSection from './components/FinPayOperationalSupportSection';
+import FinPayContactSection from './components/FinPayContactSection';
 import GlobalPaymentsMap from './components/GlobalPaymentsMap';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
@@ -542,6 +543,7 @@ export default function App() {
           <div id="solutions" className="w-full">
             <FinPayBusinessSolutionsSection />
             <FinPayOperationalSupportSection />
+            <FinPayContactSection />
             <GlobalPaymentsMap />
           </div>
 
