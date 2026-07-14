@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, useMotionValueEvent, MotionValue } from "framer-motion";
-import { Home, User, Settings, PhoneCall, LogIn } from "lucide-react";
+import { Home, User, Settings, PhoneCall } from "lucide-react";
 
 interface NavItem {
   id: string;
@@ -78,7 +78,7 @@ export default function Navbar({ scrollYProgress }: NavbarProps) {
   const handleNavClick = (id: string) => {
     if (id === "home") {
       const windowHeight = window.innerHeight;
-      window.scrollTo({ top: windowHeight * 15, behavior: "smooth" });
+      window.scrollTo({ top: windowHeight * 14.4, behavior: "smooth" });
     } else {
       const el = document.getElementById(id);
       if (el) {

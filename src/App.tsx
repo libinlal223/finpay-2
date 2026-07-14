@@ -33,6 +33,21 @@ export default function App() {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [globeImages, setGlobeImages] = useState<HTMLImageElement[]>([]);
 
+  // Performance optimizations
+  const [isLowPerformance, setIsLowPerformance] = useState(false);
+  const lastRenderRef = useRef({ f1: -1, f2: -1, alpha1: -1, alpha2: -1 });
+
+  useEffect(() => {
+    const checkPerformance = () => {
+      const isMobile = window.innerWidth < 1024;
+      const isTouch = navigator.maxTouchPoints > 0;
+      setIsLowPerformance(isMobile || isTouch);
+    };
+    checkPerformance();
+    window.addEventListener('resize', checkPerformance);
+    return () => window.removeEventListener('resize', checkPerformance);
+  }, []);
+
   // Float animation trigger state for the background canvas globe
   const [floatEnabled, setFloatEnabled] = useState(false);
 
@@ -109,10 +124,24 @@ export default function App() {
     const alpha1 = progress > 0.4 ? 0 : (progress < 0.35 ? 1 : seq1Opacity.get());
     const alpha2 = progress < 0.35 ? 0 : (progress > 0.4 ? 1 : seq2Opacity.get());
 
-    const img1 = arr1[0];
-    if (img1 && canvas.width !== img1.width) {
-      canvas.width = img1.width;
-      canvas.height = img1.height;
+    // Skip rendering if frame indices and opacity alpha states are identical to last render
+    const last = lastRenderRef.current;
+    if (f1 === last.f1 && f2 === last.f2 && alpha1 === last.alpha1 && alpha2 === last.alpha2) {
+      return;
+    }
+    lastRenderRef.current = { f1, f2, alpha1, alpha2 };
+
+    const img1 = arr1[f1] || arr1[0];
+    if (img1) {
+      const maxW = isLowPerformance ? 800 : img1.width;
+      const aspectRatio = img1.height / img1.width;
+      const targetWidth = Math.min(img1.width, maxW);
+      const targetHeight = Math.round(targetWidth * aspectRatio);
+
+      if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+      }
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -164,15 +193,15 @@ export default function App() {
   const s4Y = useTransform(scrollYProgress, [0.21, 0.225, 0.26, 0.27], [24, 0, 0, -24]);
 
   // Section 05 (USDT Exchange UI - stays visible until covered)
-  const s5Opacity = useTransform(scrollYProgress, [0.90, 0.94], [0, 1]);
+  const s5Opacity = useTransform(scrollYProgress, [0.90, 0.94, 0.97, 0.985], [0, 1, 1, 0]);
   const s5Y = useTransform(scrollYProgress, [0.90, 0.94], [24, 0]);
-  const s5PointerEvents = useTransform(scrollYProgress, (progress) => progress >= 0.92 ? "auto" as const : "none" as const);
+  const s5PointerEvents = useTransform(scrollYProgress, (progress) => progress >= 0.92 && progress < 0.985 ? "auto" as const : "none" as const);
 
 
   // Hide the entire fixed layer (globe + all overlays) once past the spacer
-  const fixedLayerDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.999 ? "none" as const : "block" as const);
-  const globeOpacity = 1;
-  const globeDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.999 ? "none" as const : "block" as const);
+  const fixedLayerDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.985 ? "none" as const : "block" as const);
+  const globeOpacity = useTransform(scrollYProgress, [0.97, 0.985], [1, 0]);
+  const globeDisplay = useTransform(scrollYProgress, (progress) => progress >= 0.985 ? "none" as const : "block" as const);
 
   const nodes = [
     // Left Column (wavy, organic)
