@@ -197,8 +197,30 @@ export default function App() {
       {loadedCount < FRAME_COUNT * 2 && (
         <div className="fixed inset-0 z-50 bg-[#050505] flex items-center justify-center overflow-hidden touch-none">
           <div className="loader-container">
-            <h1 className="text-3xl font-bold mb-4 tracking-tight">INITIALIZING EXPERIENCE</h1>
-            <div className="text-xl text-zinc-400">Loading High-Fidelity Assets... {Math.round((loadedCount / (FRAME_COUNT * 2)) * 100)}%</div>
+            <motion.img
+              src="/logoload.png"
+              alt="Finpay Logo"
+              className="mb-8 object-contain"
+              style={{ width: '300px', height: 'auto', opacity: 0.95 }}
+              animate={{
+                scale: [1, 1.02, 1]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <div className="text-xl text-zinc-400">
+              {(() => {
+                const percent = Math.min(100, Math.round((loadedCount / (FRAME_COUNT * 2)) * 100));
+                if (percent <= 25) return "Initializing FinPay Services...";
+                if (percent <= 50) return "Verifying Exchange Services...";
+                if (percent <= 75) return "Preparing Secure Transfer...";
+                return "Almost Ready...";
+              })()}{" "}
+              {Math.min(100, Math.round((loadedCount / (FRAME_COUNT * 2)) * 100))}%
+            </div>
             <div className="loader-bar-bg">
               <div className="loader-bar-fill" style={{ width: `${(loadedCount / (FRAME_COUNT * 2)) * 100}%` }}></div>
             </div>
@@ -214,10 +236,10 @@ export default function App() {
         <Navbar scrollYProgress={scrollYProgress} />
 
         {/* FIXED MAIN CONTAINER */}
-        <motion.div className="fixed inset-0 w-full h-screen z-10 pointer-events-none" style={{ display: fixedLayerDisplay }}>
+        <motion.div className="fixed inset-0 w-full h-screen z-10 pointer-events-none overflow-hidden" style={{ display: fixedLayerDisplay }}>
 
           {/* Canvas Background (Globe) */}
-          <motion.div 
+          <motion.div
             className={`absolute inset-0 w-full h-full z-0 pointer-events-none ${floatEnabled ? 'float-globe' : ''}`}
             style={{ opacity: globeOpacity, display: globeDisplay }}
           >
