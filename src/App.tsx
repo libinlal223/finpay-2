@@ -455,7 +455,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="/icon1.png"
+                  src="/icon1.webp"
                   alt="Icon 1"
                   className="object-contain w-full h-full"
                   style={{ filter: 'drop-shadow(0 0 12px rgba(0, 230, 167, 0.28))' }}
@@ -479,7 +479,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="/icon3.png"
+                  src="/icon3.webp"
                   alt="Icon 3"
                   className="object-contain w-full h-full"
                   style={{ filter: 'drop-shadow(0 0 12px rgba(0, 230, 167, 0.28))' }}
@@ -503,7 +503,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="/icon2.png"
+                  src="/icon2.webp"
                   alt="Icon 2"
                   className="object-contain w-full h-full"
                   style={{ filter: 'drop-shadow(0 0 12px rgba(0, 230, 167, 0.28))' }}
@@ -527,7 +527,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="/icon2.png"
+                  src="/icon2.webp"
                   alt="Icon 2 Duplicate"
                   className="object-contain w-full h-full"
                   style={{ filter: 'drop-shadow(0 0 12px rgba(0, 230, 167, 0.28))' }}
@@ -551,7 +551,7 @@ export default function App() {
                 }}
               >
                 <img
-                  src="/icon1.png"
+                  src="/icon1.webp"
                   alt="Icon 1 Duplicate"
                   className="object-contain w-full h-full"
                   style={{ filter: 'drop-shadow(0 0 12px rgba(0, 230, 167, 0.28))' }}

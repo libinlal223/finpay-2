@@ -25,7 +25,7 @@ export default function FinPaySettlementsSection() {
           <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
             <div className="w-full max-w-[520px] md:max-w-[700px] aspect-square flex items-center justify-center opacity-25 md:opacity-75 transition-opacity duration-300">
               <img
-                src="/set12.png"
+                src="/set12.webp"
                 alt="Settlements Graphic"
                 className="w-full h-full object-contain select-none pointer-events-none"
               />

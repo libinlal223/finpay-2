@@ -51,7 +51,7 @@ export default function WhyChooseUsSection() {
       <div
         className="absolute inset-0 w-full h-full bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none z-0"
         style={{
-          backgroundImage: "url('/pg1.png')",
+          backgroundImage: "url('/pg1.webp')",
         }}
       />
 

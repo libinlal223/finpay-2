@@ -30,7 +30,7 @@ export default function FinPayExchangeServicesSection() {
           {/* LEFT COLUMN: Exchange Corridors Image */}
           <div className="col-span-6 flex items-center justify-center w-full">
             <img
-              src="/usdtex.png"
+              src="/usdtex.webp"
               alt="USDT Exchange Corridors"
               className="w-full max-w-[500px] object-contain select-none pointer-events-none"
             />

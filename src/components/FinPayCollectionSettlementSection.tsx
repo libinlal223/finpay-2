@@ -134,7 +134,7 @@ export default function FinPayCollectionSettlementSection() {
               className="w-full flex justify-center"
             >
               <img
-                src="/service2.PNG"
+                src="/service2.webp"
                 alt="Service 2 Graphic"
                 className="w-full max-w-[500px] object-contain select-none pointer-events-none"
               />
