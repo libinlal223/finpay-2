@@ -137,20 +137,21 @@ const PaymentRoute = ({ route, index, lineColor }: RouteProps) => {
   );
 };
 
+const map = new DottedMap({ height: 100, grid: "diagonal" });
+
+// Hardcoded dark theme (site is always dark)
+const svgMap = map.getSVG({
+  radius: 0.22,
+  color: "#FFFFFF40",
+  shape: "circle",
+  backgroundColor: "black",
+});
+
 export default function WorldMap({
   dots: _dots = [],
   lineColor = "#0ea5e9",
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const map = new DottedMap({ height: 100, grid: "diagonal" });
-
-  // Hardcoded dark theme (site is always dark)
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: "#FFFFFF40",
-    shape: "circle",
-    backgroundColor: "black",
-  });
 
   return (
     <div 

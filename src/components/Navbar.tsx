@@ -48,8 +48,8 @@ export default function Navbar({ scrollYProgress }: NavbarProps) {
 
       let currentActive = "home";
 
-      // 1500vh represents the 3D scroll animations spacer zone
-      const isPastStorytelling = scrollPos > 1500 * (windowHeight / 100);
+      const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top + scrollPos : 0;
+      const isPastStorytelling = aboutTop > 0 && scrollPos >= aboutTop - windowHeight * 0.5;
 
       if (isPastStorytelling) {
         for (const section of sections) {

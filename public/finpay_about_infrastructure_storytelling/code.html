@@ -1,0 +1,810 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Services | FinPay - Digital Payment Infrastructure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#08100e",
+                    "on-surface": "#dce4e0",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#00201a",
+                    "secondary-fixed": "#00ffd5",
+                    "outline-variant": "#3b4a45",
+                    "primary": "#8dffe5",
+                    "error": "#ffb4ab",
+                    "outline": "#84948f",
+                    "surface-container-highest": "#2e3634",
+                    "secondary-fixed-dim": "#00e0bb",
+                    "surface-dim": "#0d1513",
+                    "tertiary": "#ebeaea",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-secondary": "#00382d",
+                    "background": "#0d1513",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "tertiary-container": "#cecece",
+                    "primary-fixed": "#43fddc",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "on-secondary-fixed": "#002019",
+                    "on-tertiary": "#2f3131",
+                    "on-tertiary-container": "#575858",
+                    "surface-bright": "#333b38",
+                    "surface-tint": "#00dfc0",
+                    "inverse-primary": "#006b5b",
+                    "on-background": "#dce4e0",
+                    "secondary-container": "#00fcd2",
+                    "inverse-surface": "#dce4e0",
+                    "inverse-on-surface": "#2a3230",
+                    "on-secondary-container": "#00705c",
+                    "tertiary-fixed": "#e3e2e2",
+                    "surface-container-low": "#151d1b",
+                    "secondary": "#f3fff9",
+                    "surface": "#0d1513",
+                    "surface-variant": "#2e3634",
+                    "primary-container": "#16e8c8",
+                    "on-primary-fixed-variant": "#005144",
+                    "on-primary-container": "#006455",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#b9cac4",
+                    "surface-container-high": "#242c29",
+                    "on-error": "#690005",
+                    "surface-container": "#19211f",
+                    "on-secondary-fixed-variant": "#005142",
+                    "on-primary": "#00382e",
+                    "primary-fixed-dim": "#00dfc0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-tablet": "32px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Geist"],
+                    "mono-data": ["JetBrains Mono"],
+                    "label-caps": ["Geist"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-xl": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "mono-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #dce4e0;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(22, 232, 200, 0.15);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+            border-color: rgba(22, 232, 200, 0.5);
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent 0%, rgba(22, 232, 200, 0.2) 50%, transparent 100%);
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(100%); }
+        }
+        .currency-capsule {
+            border: 1px solid rgba(141, 255, 229, 0.3);
+            box-shadow: 0 0 10px rgba(141, 255, 229, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .holographic-chip {
+            background: rgba(22, 232, 200, 0.05);
+            border: 1px solid rgba(22, 232, 200, 0.2);
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+<style>
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style><style>
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style></head>
+<body class="font-body-md">
+<!-- Global Background Shader -->
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-primary/15 shadow-[0_0_20px_rgba(0,255,213,0.1)]">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">FinPay</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Markets</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md" href="#">Assets</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Network</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 font-bold hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(0,255,213,0.3)] transition-all active:scale-95">Command Center</button>
+</div>
+</nav>
+<main class="relative z-10 pt-20">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl space-y-8 animate-fade-in">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 glass-panel rounded-full text-primary font-mono-data text-label-caps uppercase tracking-widest border border-primary/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Institutional Grade Protocol
+            </div>
+<h1 class="font-headline-xl text-headline-xl md:text-display-lg md:font-display-lg text-secondary leading-tight">
+                Powering Global Digital <span class="text-primary">Payment Infrastructure</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                A cinematic execution of institutional liquidity and settlement. Secure your enterprise operations with high-fidelity transaction engineering and multi-corridor asset mobility.
+            </p>
+<div class="pt-8 flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary-container text-on-primary-container h-14 px-10 font-bold rounded-lg hover:shadow-[0_0_25px_rgba(22,232,200,0.5)] transition-all flex items-center justify-center gap-3">
+                    Deploy Infrastructure <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-transparent border border-primary/40 text-primary h-14 px-10 font-bold rounded-lg hover:bg-primary/5 transition-all">
+                    Technical Docs
+                </button>
+</div>
+</div>
+</section>
+<!-- Cinematic About FINPAY Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center py-32 overflow-hidden bg-[#050505]">
+<!-- Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_9 class="absolute inset-0 w-full h-full opacity-60 pointer-events-none" -->
+<div class="absolute inset-0 w-full h-full opacity-60 pointer-events-none" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_9" style="display:block;width:100%;height:100%" width="1280" height="43032"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_9');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+float hash(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p);
+    vec2 f = fract(p);
+    float a = hash(i);
+    float b = hash(i + vec2(1.0, 0.0));
+    float c = hash(i + vec2(0.0, 1.0));
+    float d = hash(i + vec2(1.0, 1.0));
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 p = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.y, u_resolution.x);
+    
+    // Deep FinPay Black
+    vec3 color = vec3(0.0196, 0.0196, 0.0196); 
+    
+    // Subtle scanning grid
+    vec2 grid_uv = uv * 60.0;
+    vec2 grid = abs(fract(grid_uv - 0.5) - 0.5) / fwidth(grid_uv);
+    float line = min(grid.x, grid.y);
+    float grid_pattern = 1.0 - min(line, 1.0);
+    color += grid_pattern * 0.01 * vec3(0.086, 0.91, 0.784); 
+
+    // Digital dust / moving particles
+    for(float i = 0.0; i < 25.0; i++) {
+        vec2 pos = vec2(hash(vec2(i, 33.0)), hash(vec2(i, 44.0)));
+        pos.y = fract(pos.y - u_time * 0.03);
+        pos.x += sin(u_time * 0.15 + i) * 0.03;
+        
+        float dist = length(uv - pos);
+        float brightness = 0.0005 / (dist * dist);
+        color += brightness * vec3(0.086, 0.91, 0.784) * (0.5 + 0.5 * sin(u_time + i));
+    }
+
+    // Volumetric pulse / center glow
+    float dist_center = length(p);
+    float pulse = exp(-dist_center * 1.5) * (0.8 + 0.2 * sin(u_time));
+    color += pulse * 0.05 * vec3(0.086, 0.91, 0.784);
+    
+    // Depth fog / noise
+    float n = noise(uv * 3.0 + u_time * 0.1);
+    color += n * 0.03 * vec3(0.086, 0.91, 0.784);
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_9 -->
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="text-center mb-24">
+<span class="font-mono-data text-primary uppercase tracking-[0.4em] text-label-caps block mb-6">About FINPAY</span>
+<h2 class="font-headline-xl text-headline-xl md:text-[64px] md:leading-tight font-bold text-secondary max-w-5xl mx-auto">
+                    BUILDING THE FUTURE OF <span class="text-primary">GLOBAL DIGITAL SETTLEMENTS</span>
+</h2>
+</div>
+<div class="relative grid grid-cols-1 lg:grid-cols-3 gap-12 items-center min-h-[600px]">
+<!-- Left Panels -->
+<div class="space-y-12">
+<div class="glass-panel p-8 rounded-2xl relative group hover:border-primary/50 transition-all">
+<div class="absolute -right-6 top-1/2 w-6 h-[1px] bg-primary/30 hidden lg:block"></div>
+<h4 class="text-primary font-bold mb-3 font-headline-lg-mobile">Global Digital Payment Infrastructure</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">FINPAY is a global digital payment and settlement solutions provider specializing in stablecoin-based financial infrastructure and international transaction support.</p>
+</div>
+<div class="glass-panel p-8 rounded-2xl relative group hover:border-primary/50 transition-all">
+<div class="absolute -right-6 top-1/2 w-6 h-[1px] bg-primary/30 hidden lg:block"></div>
+<h4 class="text-primary font-bold mb-3 font-headline-lg-mobile">Cross-Border Payment Solutions</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">We help businesses simplify cross-border payments, merchant settlements, and multi-currency exchange operations through secure and efficient USDT-based solutions.</p>
+</div>
+</div>
+<!-- Central 3D Core -->
+<div class="relative h-[400px] lg:h-[600px] flex items-center justify-center">
+<!-- STITCH_THREEJS_START:ANIMATION_10 class="w-full h-full scale-125 md:scale-150" -->
+<div class="w-full h-full scale-125 md:scale-150" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_10" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_10');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  if (!container) return;
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 6;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // Core Processor Sphere
+  const coreGeo = new THREE.IcosahedronGeometry(1.5, 4);
+  const coreMat = new THREE.MeshPhongMaterial({
+    color: 0x16E8C8,
+    emissive: 0x16E8C8,
+    emissiveIntensity: 0.5,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.4
+  });
+  const coreNode = new THREE.Mesh(coreGeo, coreMat);
+  group.add(coreNode);
+
+  // Inner Solid Glow
+  const innerGeo = new THREE.SphereGeometry(1.2, 32, 32);
+  const innerMat = new THREE.MeshPhongMaterial({
+    color: 0x16E8C8,
+    emissive: 0x16E8C8,
+    emissiveIntensity: 1.0,
+    transparent: true,
+    opacity: 0.15
+  });
+  const innerNode = new THREE.Mesh(innerGeo, innerMat);
+  group.add(innerNode);
+
+  // Orbiting Data Rings
+  const rings = [];
+  for(let i=0; i<3; i++) {
+    const ringGeo = new THREE.TorusGeometry(2.2 + i * 0.4, 0.02, 16, 100);
+    const ringMat = new THREE.MeshBasicMaterial({ color: 0x16E8C8, transparent: true, opacity: 0.3 });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.rotation.x = Math.random() * Math.PI;
+    ring.rotation.y = Math.random() * Math.PI;
+    group.add(ring);
+    rings.push({ mesh: ring, speed: 0.005 + Math.random() * 0.01 });
+  }
+
+  // Interconnected Nodes
+  const nodeGeo = new THREE.SphereGeometry(0.1, 16, 16);
+  const nodeMat = new THREE.MeshPhongMaterial({ color: 0x16E8C8, emissive: 0x16E8C8 });
+  const nodes = [];
+  for(let i=0; i<12; i++) {
+    const node = new THREE.Mesh(nodeGeo, nodeMat.clone());
+    const phi = Math.acos(-1 + (2 * i) / 12);
+    const theta = Math.sqrt(12 * Math.PI) * phi;
+    const r = 2.8;
+    node.position.set(
+      r * Math.sin(phi) * Math.cos(theta),
+      r * Math.sin(phi) * Math.sin(theta),
+      r * Math.cos(phi)
+    );
+    group.add(node);
+    nodes.push(node);
+
+    // Dynamic Connection Line
+    const points = [new THREE.Vector3(0,0,0), node.position];
+    const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+    const lineMat = new THREE.LineBasicMaterial({ color: 0x16E8C8, transparent: true, opacity: 0.2 });
+    const line = new THREE.Line(lineGeo, lineMat);
+    group.add(line);
+  }
+
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambientLight);
+  const pointLight = new THREE.PointLight(0x16E8C8, 2, 10);
+  pointLight.position.set(5, 5, 5);
+  scene.add(pointLight);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const time = Date.now() * 0.001;
+    
+    group.rotation.y += 0.002;
+    coreNode.rotation.x += 0.005;
+    
+    rings.forEach(r => {
+        r.mesh.rotation.z += r.speed;
+        r.mesh.material.opacity = 0.2 + Math.sin(time + r.speed * 100) * 0.1;
+    });
+
+    nodes.forEach((n, i) => {
+        n.position.y += Math.sin(time + i) * 0.002;
+        n.material.emissiveIntensity = 0.5 + Math.sin(time * 2 + i) * 0.5;
+    });
+
+    coreMat.emissiveIntensity = 0.5 + Math.sin(time * 1.5) * 0.3;
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  animate();
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_10 -->
+<!-- Floating Metric Chips -->
+<div class="absolute top-0 left-10 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 0s;">Global Payments</div>
+<div class="absolute top-20 right-0 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 1s;">Stablecoin Infrastructure</div>
+<div class="absolute bottom-10 left-0 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 2s;">Merchant Solutions</div>
+<div class="absolute bottom-20 right-10 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 3s;">Cross-Border Settlement</div>
+<div class="absolute top-1/2 -left-10 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 4s;">Enterprise Ready</div>
+<div class="absolute top-1/2 -right-10 holographic-chip px-4 py-2 rounded-full text-xs font-mono-data text-primary" style="animation-delay: 5s;">Multi-Currency Operations</div>
+</div>
+<!-- Right Panels -->
+<div class="space-y-12">
+<div class="glass-panel p-8 rounded-2xl relative group hover:border-primary/50 transition-all">
+<div class="absolute -left-6 top-1/2 w-6 h-[1px] bg-primary/30 hidden lg:block"></div>
+<h4 class="text-primary font-bold mb-3 font-headline-lg-mobile">Built for Modern Business</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our services are designed for businesses requiring faster settlements, international payment flexibility, and scalable financial operations.</p>
+</div>
+<div class="glass-panel p-8 rounded-2xl relative group hover:border-primary/50 transition-all">
+<div class="absolute -left-6 top-1/2 w-6 h-[1px] bg-primary/30 hidden lg:block"></div>
+<h4 class="text-primary font-bold mb-3 font-headline-lg-mobile">Enterprise Payment Ecosystem</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">FINPAY supports merchants, e-commerce businesses, trading operations, and international partners with reliable payment collection systems and global currency exchange capabilities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 1. USDT EXCHANGE SERVICES -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1 relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-xl blur-2xl group-hover:bg-primary/10 transition-all"></div>
+
+<div class="absolute bottom-8 left-8 right-8 flex flex-wrap gap-3 justify-center">
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → INR</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → AED</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → MYR</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → CNY</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → BDT</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → JPY</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → NPR</div>
+<div class="currency-capsule bg-surface/80 backdrop-blur px-4 py-1.5 rounded-full text-primary font-mono-data text-xs border-primary/20">USDT → IDR</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<span class="font-mono-data text-primary uppercase tracking-[0.3em] text-label-caps">Protocol Level 01</span>
+<h2 class="font-headline-xl text-headline-xl text-secondary">USDT Exchange Services</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Access deep institutional liquidity across major global corridors. Our exchange engine provides sub-millisecond price discovery and high-throughput settlement for USDT-native treasury management.
+                </p>
+<ul class="space-y-4 pt-4">
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+<span>Direct Settlement Corridors</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+<span>Zero-Latency Routing Logic</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 2. PAYMENT COLLECTION & SETTLEMENT -->
+<section class="py-32 bg-surface-container-low/30 relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-6">
+<span class="font-mono-data text-primary uppercase tracking-[0.3em] text-label-caps">Protocol Level 02</span>
+<h2 class="font-headline-xl text-headline-xl text-secondary">Payment Collection &amp; Settlement</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Automate the lifecycle of every transaction. Our settlement engine utilizes neural traces to track, verify, and consolidate payments from multiple origins into a unified digital vault.
+                </p>
+<div class="grid grid-cols-2 gap-4 pt-8">
+<div class="glass-panel p-6 glow-hover transition-all rounded-xl border-l-4 border-l-primary group">
+<span class="material-symbols-outlined text-primary mb-4 block scale-125 transition-transform group-hover:scale-150 duration-500">schedule</span>
+<h4 class="font-semibold text-secondary mb-2">Real-time</h4>
+<p class="text-sm text-on-surface-variant">Instant ledger updates across global nodes.</p>
+</div>
+<div class="glass-panel p-6 glow-hover transition-all rounded-xl border-l-4 border-l-primary group">
+<span class="material-symbols-outlined text-primary mb-4 block scale-125 transition-transform group-hover:scale-150 duration-500">layers</span>
+<h4 class="font-semibold text-secondary mb-2">Bulk</h4>
+<p class="text-sm text-on-surface-variant">High-volume processing for payroll and payouts.</p>
+</div>
+<div class="glass-panel p-6 glow-hover transition-all rounded-xl border-l-4 border-l-primary group">
+<span class="material-symbols-outlined text-primary mb-4 block scale-125 transition-transform group-hover:scale-150 duration-500">public</span>
+<h4 class="font-semibold text-secondary mb-2">Cross-border</h4>
+<p class="text-sm text-on-surface-variant">Frictionless international capital flow.</p>
+</div>
+<div class="glass-panel p-6 glow-hover transition-all rounded-xl border-l-4 border-l-primary group">
+<span class="material-symbols-outlined text-primary mb-4 block scale-125 transition-transform group-hover:scale-150 duration-500">security</span>
+<h4 class="font-semibold text-secondary mb-2">Immutable</h4>
+<p class="text-sm text-on-surface-variant">Cryptographic proof for every operation.</p>
+</div>
+</div>
+</div>
+<div class="relative min-h-[500px]">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-full glass-panel border-primary/10 rounded-3xl relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 scan-line opacity-20"></div>
+<div class="grid grid-cols-4 gap-2 opacity-30 w-full h-full p-4">
+<div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-b border-primary/20"></div>
+<div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-b border-primary/20"></div>
+<div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-r border-b border-primary/20"></div><div class="border-b border-primary/20"></div>
+</div>
+<div class="z-10 text-center">
+<div class="w-48 h-48 rounded-full border-2 border-primary/40 flex items-center justify-center animate-[pulse_4s_infinite]">
+<div class="w-32 h-32 rounded-full border border-primary/60 flex items-center justify-center animate-[spin_10s_linear_infinite]">
+<div class="w-4 h-4 bg-primary shadow-[0_0_15px_#16E8C8]"></div>
+</div>
+</div>
+<div class="mt-8 font-mono-data text-primary text-label-caps">SYSTEM OPERATIONAL</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. PAYMENT GATEWAY ONBOARDING -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<span class="font-mono-data text-primary uppercase tracking-[0.3em] text-label-caps block mb-6">Protocol Level 03</span>
+<h2 class="font-headline-xl text-headline-xl text-secondary mb-16">Payment Gateway Onboarding</h2>
+<div class="relative pt-10">
+<div class="absolute top-[84px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent hidden md:block"></div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+<div class="relative group">
+<div class="w-16 h-16 rounded-full glass-panel border-primary border-2 mx-auto flex items-center justify-center mb-6 z-20 relative bg-surface-dim group-hover:shadow-[0_0_20px_#16E8C8] transition-all">
+<span class="material-symbols-outlined text-primary">person_add</span>
+</div>
+<h4 class="font-bold text-secondary">Merchant</h4>
+<p class="text-sm text-on-surface-variant mt-2 px-4">Entity registration and account creation</p>
+</div>
+<div class="relative group">
+<div class="w-16 h-16 rounded-full glass-panel border-primary/40 border-2 mx-auto flex items-center justify-center mb-6 z-20 relative bg-surface-dim group-hover:border-primary group-hover:shadow-[0_0_20px_#16E8C8] transition-all">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<h4 class="font-bold text-secondary">Verification</h4>
+<p class="text-sm text-on-surface-variant mt-2 px-4">KYC/KYB and risk scoring compliance</p>
+</div>
+<div class="relative group">
+<div class="w-16 h-16 rounded-full glass-panel border-primary/40 border-2 mx-auto flex items-center justify-center mb-6 z-20 relative bg-surface-dim group-hover:border-primary group-hover:shadow-[0_0_20px_#16E8C8] transition-all">
+<span class="material-symbols-outlined text-primary">integration_instructions</span>
+</div>
+<h4 class="font-bold text-secondary">API Integration</h4>
+<p class="text-sm text-on-surface-variant mt-2 px-4">Connecting your stack to our SDKs</p>
+</div>
+<div class="relative group">
+<div class="w-16 h-16 rounded-full glass-panel border-primary/40 border-2 mx-auto flex items-center justify-center mb-6 z-20 relative bg-surface-dim group-hover:border-primary group-hover:shadow-[0_0_20px_#16E8C8] transition-all">
+<span class="material-symbols-outlined text-primary">bug_report</span>
+</div>
+<h4 class="font-bold text-secondary">Testing</h4>
+<p class="text-sm text-on-surface-variant mt-2 px-4">Sandbox environment validation</p>
+</div>
+<div class="relative group">
+<div class="w-16 h-16 rounded-full glass-panel border-primary/40 border-2 mx-auto flex items-center justify-center mb-6 z-20 relative bg-surface-dim group-hover:border-primary group-hover:shadow-[0_0_20px_#16E8C8] transition-all">
+<span class="material-symbols-outlined text-primary">rocket_launch</span>
+</div>
+<h4 class="font-bold text-secondary">Go Live</h4>
+<p class="text-sm text-on-surface-variant mt-2 px-4">Mainnet deployment and traffic flow</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. MULTI CURRENCY EXCHANGE -->
+<section class="py-32 relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1 relative min-h-[600px] flex items-center justify-center">
+<div class="absolute w-full h-full flex items-center justify-center">
+<div class="w-32 h-32 rounded-full glass-panel border-primary flex items-center justify-center shadow-[0_0_50px_rgba(22,232,200,0.3)] z-20">
+<span class="text-primary font-bold text-xl">USDT</span>
+</div>
+<div class="absolute w-[80%] h-[80%] border border-primary/10 rounded-full animate-[spin_30s_linear_infinite]">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">INR</div>
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">AED</div>
+</div>
+<div class="absolute w-[60%] h-[60%] border border-primary/10 rounded-full animate-[spin_20s_linear_infinite_reverse]">
+<div class="absolute top-1/2 -right-6 -translate-y-1/2 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">MYR</div>
+<div class="absolute top-1/2 -left-6 -translate-y-1/2 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">JPY</div>
+</div>
+<div class="absolute w-full h-full border border-primary/5 rounded-full animate-[spin_45s_linear_infinite]">
+<div class="absolute top-1/4 right-0 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">CNY</div>
+<div class="absolute bottom-1/4 left-0 glass-panel border-primary/30 px-4 py-1.5 rounded-full text-xs font-mono-data text-primary">BDT</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6">
+<span class="font-mono-data text-primary uppercase tracking-[0.3em] text-label-caps">Protocol Level 04</span>
+<h2 class="font-headline-xl text-headline-xl text-secondary">Multi Currency Exchange</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    A global network built for arbitrage and efficient capital distribution. Convert stable assets into sovereign currencies across 12+ regions with competitive basis points and high-fidelity compliance.
+                </p>
+<div class="pt-8 space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-highest/30 p-4 rounded-lg border border-primary/10">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">public</span>
+</div>
+<div>
+<h5 class="font-semibold text-secondary">Global Reach</h5>
+<p class="text-xs text-on-surface-variant">Direct fiat rails in SEA, MENA, and East Asia.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-highest/30 p-4 rounded-lg border border-primary/10">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">bolt</span>
+</div>
+<div>
+<h5 class="font-semibold text-secondary">Optimized Spreads</h5>
+<p class="text-xs text-on-surface-variant">Institutional grade liquidity pooling.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. BUSINESS SOLUTIONS -->
+<section class="py-32 bg-surface-container-lowest/50">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-20">
+<span class="font-mono-data text-primary uppercase tracking-[0.3em] text-label-caps block mb-6">Protocol Level 05</span>
+<h2 class="font-headline-xl text-headline-xl text-secondary">Business Solutions</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mt-4">Tailored financial architecture for every operational vertical.</p>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-panel p-8 rounded-2xl glow-hover transition-all group flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">shopping_cart</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary mb-4">E-Commerce</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">Scalable checkout experiences with multi-asset support and instant vendor payouts.</p>
+<a class="text-primary font-mono-data text-label-caps tracking-widest hover:underline" href="#">REQUISITION_INFO</a>
+</div>
+<div class="glass-panel p-8 rounded-2xl glow-hover transition-all group flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">token</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary mb-4">Digital Merchants</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">Native stablecoin acceptance for SaaS, gaming, and digital service providers.</p>
+<a class="text-primary font-mono-data text-label-caps tracking-widest hover:underline" href="#">REQUISITION_INFO</a>
+</div>
+<div class="glass-panel p-8 rounded-2xl glow-hover transition-all group flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">factory</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary mb-4">Int. Suppliers</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">High-value supply chain financing and cross-border settlement protocols.</p>
+<a class="text-primary font-mono-data text-label-caps tracking-widest hover:underline" href="#">REQUISITION_INFO</a>
+</div>
+<div class="glass-panel p-8 rounded-2xl glow-hover transition-all group flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill">hub</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary mb-4">Global Ops</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">Unified treasury management for enterprises with distributed teams.</p>
+<a class="text-primary font-mono-data text-label-caps tracking-widest hover:underline" href="#">REQUISITION_INFO</a>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-40 text-center px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto glass-panel p-16 rounded-3xl border-primary/20 relative overflow-hidden group">
+<div class="absolute inset-0 scan-line opacity-5"></div>
+<h2 class="font-headline-xl text-headline-xl text-secondary mb-8">Ready to Integrate?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Connect with our institutional team to discuss your payment infrastructure requirements.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary-container text-on-primary-container h-14 px-12 font-bold rounded-lg hover:shadow-[0_0_25px_rgba(22,232,200,0.5)] transition-all">Contact Sales</button>
+<button class="bg-transparent border border-primary/40 text-primary h-14 px-12 font-bold rounded-lg hover:bg-primary/5 transition-all">Developer Portal</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container-lowest border-t border-primary/10 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">FinPay</div>
+<p class="text-on-tertiary-fixed-variant text-sm">Secure digital payment infrastructure for the global economy. Built on Neural Protocol standards.</p>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary font-bold">Platform</h5>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">Terminal</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">API Docs</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">Status</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary font-bold">Governance</h5>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">Compliance</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">Privacy</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors text-sm" href="#">Security Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-primary font-bold">Connect</h5>
+<div class="flex gap-4">
+<div class="w-10 h-10 glass-panel border-primary/20 flex items-center justify-center rounded hover:border-primary transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">share</span></div>
+<div class="w-10 h-10 glass-panel border-primary/20 flex items-center justify-center rounded hover:border-primary transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">alternate_email</span></div>
+<div class="w-10 h-10 glass-panel border-primary/20 flex items-center justify-center rounded hover:border-primary transition-all cursor-pointer"><span class="material-symbols-outlined text-sm">forum</span></div>
+</div>
+<p class="text-xs text-on-tertiary-fixed-variant mt-8">© 2024 FinPay. Secured by Neural Protocol.</p>
+</div>
+</div>
+</footer>
+<script>
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000');
+        observer.observe(section);
+    });
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+</body></html>

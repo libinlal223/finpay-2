@@ -17,7 +17,7 @@ export default function Footer() {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
-  <br />
+
   return (
     <footer className="w-full bg-[#000000] text-white pb-24 px-6 md:px-12 relative z-10 font-sans" style={{ paddingTop: '64px' }}>
       <div className="max-w-7xl mx-auto w-full">
