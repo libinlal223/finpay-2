@@ -33,7 +33,12 @@ button {
 }
 
 /* Base Headings & Paragraphs */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Outfit', sans-serif;
   letter-spacing: -0.04em;
   line-height: 0.95;
@@ -65,14 +70,12 @@ p {
 
 /* Shiny Text Effect - Highly Performant */
 .shiny-text {
-  background: linear-gradient(
-    110deg,
-    #ffffff 0%,
-    #e0e0e0 30%,
-    #00E6A7 50%,
-    #e0e0e0 70%,
-    #ffffff 100%
-  );
+  background: linear-gradient(110deg,
+      #ffffff 0%,
+      #e0e0e0 30%,
+      #00E6A7 50%,
+      #e0e0e0 70%,
+      #ffffff 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -86,74 +89,33 @@ p {
   }
 }
 
-.canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
 
-canvas {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Loading Screen */
-.loader-container {
-  position: fixed;
-  inset: 0;
-  background-color: #050505;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-  color: white;
-}
-
-.loader-bar-bg {
-  width: 300px;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.12);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.loader-bar-fill {
-  height: 100%;
-  background-color: var(--finpay-green);
-  transition: width 0.1s ease-out;
-}
-
-/* Globe Floating Animation */
-@keyframes floatGlobe {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-.float-globe canvas {
-  animation: floatGlobe 4s ease-in-out infinite;
-}
 
 /* Orbital System Animations */
 @keyframes simple-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes reverse-node-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(-360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }
 
 @keyframes orbitDash {
-  to { stroke-dashoffset: -400; }
+  to {
+    stroke-dashoffset: -400;
+  }
 }
 
 .orbit-line-anim {
@@ -192,10 +154,12 @@ canvas {
     max-width: 360px;
     max-height: 360px;
   }
+
   .orbit-node {
     width: 50px;
     height: 50px;
   }
+
   .orbit-node span {
     font-size: 0.9rem !important;
   }
@@ -267,9 +231,17 @@ canvas {
 }
 
 @keyframes gradient-slide {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Card Glow Badges */
@@ -287,8 +259,17 @@ canvas {
 }
 
 @keyframes pulse-ring {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .5; transform: scale(1.03); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .5;
+    transform: scale(1.03);
+  }
 }
 
 /* SVG Line Dash Array Animation */
@@ -305,50 +286,59 @@ canvas {
 
 /* --- 90s CYBER / TRON THEME STYLES --- */
 .starfield {
-  background-image: 
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 30% 40%, rgba(0,212,255,0.6), transparent),
-    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 80% 30%, rgba(0,212,255,0.4), transparent),
-    radial-gradient(1.5px 1.5px at 20% 80%, rgba(255,255,255,0.7), transparent),
-    radial-gradient(1px 1px at 90% 90%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(2px 2px at 60% 90%, rgba(0,212,255,0.5), transparent);
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 30% 40%, rgba(0, 212, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 80% 30%, rgba(0, 212, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 20% 80%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 60% 90%, rgba(0, 212, 255, 0.5), transparent);
   background-repeat: repeat;
   background-size: 300px 300px;
   animation: starfield-drift 75s linear infinite;
 }
 
 @keyframes starfield-drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-300px); }
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-300px);
+  }
 }
 
 .wireframe-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
   transform: perspective(600px) rotateX(70deg);
   transform-origin: bottom center;
-  top: 50%; /* Positioned in lower half */
+  top: 50%;
+  /* Positioned in lower half */
   animation: grid-scroll 10s linear infinite;
 }
 
 @keyframes grid-scroll {
-  from { background-position: 0 0; }
-  to { background-position: 0 40px; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 40px;
+  }
 }
 
 .scanline-overlay {
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.035) 3px,
-    rgba(0, 0, 0, 0.035) 4px
-  );
+  background: repeating-linear-gradient(to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.035) 3px,
+      rgba(0, 0, 0, 0.035) 4px);
   pointer-events: none;
 }
 
@@ -358,12 +348,12 @@ canvas {
 
 /* Headlines Glow */
 .cyber-headline-glow {
-  text-shadow: 0 0 12px rgba(0,255,157,0.25), 0 0 2px rgba(255,255,255,0.4);
+  text-shadow: 0 0 12px rgba(0, 255, 157, 0.25), 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 .cyber-hero-glow {
-  text-shadow: 0 0 16px rgba(0,255,157,0.35), 0 0 3px rgba(255,255,255,0.5);
-  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+  text-shadow: 0 0 16px rgba(0, 255, 157, 0.35), 0 0 3px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
 }
 
 .radar-divider {
@@ -385,9 +375,17 @@ canvas {
 }
 
 @keyframes radar-sweep {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 /* Feature Panels */
@@ -418,13 +416,18 @@ canvas {
   transform: scale(1.03);
 }
 
-.breathing-grid > div {
+.breathing-grid>div {
   animation: chip-breath 3s ease-in-out infinite alternate;
 }
 
 @keyframes chip-breath {
-  from { opacity: 0.85; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.85;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .orbit-ring {
@@ -434,8 +437,13 @@ canvas {
 }
 
 @keyframes rotate-orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Blinking Cursor */
@@ -444,8 +452,15 @@ canvas {
 }
 
 @keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Scroll Entrances */
@@ -572,10 +587,460 @@ canvas {
 .hide-scrollbar::-webkit-scrollbar {
   display: none !important;
 }
+
 .hide-scrollbar {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
 
+@media (max-width: 767px) {
+  .section5-orbit-layer {
+    display: none !important;
+  }
+}
 
+/* --- CRYPTO MARKET SECTION RESPONSIVENESS --- */
+.crypto-market-left-col {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
 
+@media (max-width: 767px) {
+  .crypto-market-left-col {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+}
+
+.crypto-conversion-box {
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 24px !important;
+  padding: 24px 20px !important;
+  font-family: 'Outfit', sans-serif !important;
+  margin-top: 24px !important;
+  width: 92vw !important;
+  max-width: 380px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 768px) {
+  .crypto-conversion-box {
+    margin-top: 15% !important;
+    width: 100% !important;
+    max-width: 420px !important;
+  }
+}
+
+.crypto-market-right-col-wrapper {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .crypto-market-right-col-wrapper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+.crypto-market-right-col-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 32px !important;
+  margin-top: 32px !important;
+  align-items: center !important;
+}
+
+@media (min-width: 768px) {
+  .crypto-market-right-col-inner {
+    gap: 24px !important;
+    margin-top: -120% !important;
+    align-items: stretch !important;
+  }
+}
+
+.currency-rate-card {
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 24px !important;
+  padding: 16px 18px !important;
+  font-family: Outfit, sans-serif !important;
+  width: 92vw !important;
+  max-width: 380px !important;
+  margin: 0 auto !important;
+}
+
+@media (min-width: 768px) {
+  .currency-rate-card {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+.crypto-market-box {
+  color-scheme: light !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 24px !important;
+  padding: 24px 20px !important;
+  font-family: 'Outfit', sans-serif !important;
+  position: relative !important;
+  width: 92vw !important;
+  max-width: 380px !important;
+  margin: 0 auto !important;
+  left: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .crypto-market-box {
+    width: 100% !important;
+    max-width: 420px !important;
+    left: -35px !important;
+    margin: 0 !important;
+  }
+}
+
+.about-finpay-section {
+  margin-top: 132px !important;
+  padding-top: 53px !important;
+}
+
+@media (min-width: 768px) {
+  .about-finpay-section {
+    margin-top: 0 !important;
+    padding-top: 80px !important;
+  }
+}
+
+.settlements-left-col {
+  transform: translateX(40px) !important;
+}
+
+@media (max-width: 767px) {
+  .settlements-left-col {
+    transform: none !important;
+  }
+}
+
+.settlements-right-col {
+  text-align: right !important;
+  transform: translateX(-40px) !important;
+}
+
+@media (max-width: 767px) {
+  .settlements-right-col {
+    transform: none !important;
+  }
+}
+
+.settlements-right-item {
+  justify-content: flex-end !important;
+}
+
+.settlements-right-para {
+  margin-left: auto !important;
+}
+
+.why-choose-us-bg {
+  background-image: url('/pg1mob.png') !important;
+}
+
+@media (min-width: 768px) {
+  .why-choose-us-bg {
+    background-image: url('/pg1.webp') !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-choose-us-left-col {
+    transform: none !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+.why-choose-us-card {
+  width: 100% !important;
+  max-width: 350px !important;
+  margin-left: auto !important;
+  margin-right: 30px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35) !important;
+  padding: 28px !important;
+}
+
+@media (max-width: 767px) {
+  .why-choose-us-card {
+    max-width: 290px !important;
+    margin: 0 auto !important;
+    padding: 16px 18px !important;
+    margin-top: 160px !important;
+    margin-bottom: 40px !important;
+  }
+}
+
+.why-choose-us-points {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+@media (max-width: 767px) {
+  .why-choose-us-points {
+    gap: 6px !important;
+  }
+}
+
+.why-choose-us-point-text {
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 767px) {
+  .why-choose-us-point-text {
+    font-size: 12.5px !important;
+    line-height: 1.3 !important;
+  }
+}
+
+.why-choose-us-section {
+  margin-top: 80px !important;
+}
+
+@media (min-width: 768px) {
+  .why-choose-us-section {
+    margin-top: 140px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .exchange-services-inner {
+    transform: translateY(-20%) !important;
+  }
+}
+
+.collection-grid-parent {
+  display: grid !important;
+}
+
+.collection-header-block {
+  grid-column: span 6 / span 6 !important;
+  grid-row: 1 !important;
+  padding-left: 70px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.collection-boxes-block {
+  grid-column: span 6 / span 6 !important;
+  grid-row: 2 !important;
+  padding-left: 70px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.collection-image-block {
+  grid-column: span 6 / span 6 !important;
+  grid-column-start: 7 !important;
+  grid-row: span 2 / span 2 !important;
+  grid-row-start: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+@media (max-width: 767px) {
+  .collection-grid-parent {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+
+  .collection-header-block {
+    grid-column: span 12 / span 12 !important;
+    grid-row: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    order: 1 !important;
+    transform: translateX(5px) !important;
+  }
+
+  .collection-image-block {
+    grid-column: span 12 / span 12 !important;
+    grid-row: auto !important;
+    order: 2 !important;
+    margin: 0 auto !important;
+  }
+
+  .collection-boxes-block {
+    grid-column: span 12 / span 12 !important;
+    grid-row: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    order: 3 !important;
+    margin: 0 auto !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .collection-boxes-grid {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: calc(100% - 32px) !important;
+    gap: 16px !important;
+  }
+}
+
+/* Service 03 Mobile-Only Shift */
+@media (max-width: 767px) {
+  .service03-mobile-shift {
+    transform: translateX(-160px) !important;
+  }
+
+  .service03-mobile-paragraph {
+    width: 75vw !important;
+    max-width: none !important;
+  }
+
+  .service03-mobile-currencies {
+    width: 75vw !important;
+    max-width: none !important;
+  }
+
+  .service03-mobile-currencies > .grid {
+    column-gap: 40px !important;
+  }
+
+  .service03-mobile-orbit {
+    transform: translateX(-140px) !important;
+  }
+
+  /* Business Solutions Mobile-Only 3-Row Layout (2 + 2 + 1) */
+  .business-solutions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: calc(100% - 32px) !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .business-solutions-grid > div {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .business-solutions-grid > div:nth-child(5) {
+    grid-column: span 2 / span 2 !important;
+    max-width: 290px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .business-solutions-grid br {
+    display: none !important;
+  }
+
+  .business-solutions-grid h3 {
+    margin-bottom: 12px !important;
+  }
+
+  /* Service 05 Mobile Vertical Alternating Timeline */
+  .service05-timeline-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 32px !important;
+    position: relative !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .service05-line {
+    top: 24px !important;
+    bottom: 24px !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 2px !important;
+    height: auto !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .service05-step {
+    display: grid !important;
+    grid-template-columns: 1fr 48px 1fr !important;
+    align-items: center !important;
+    width: 100% !important;
+    column-gap: 12px !important;
+  }
+
+  .service05-icon {
+    grid-column: 2 !important;
+    margin-bottom: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .service05-step-odd .service05-text {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    text-align: right !important;
+  }
+
+  .service05-step-even .service05-text {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    text-align: left !important;
+  }
+
+  .service05-para {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .desktop-only-br {
+    display: none !important;
+  }
+
+  /* Footer Mobile-Only 5px Right Shift */
+  .footer-mobile-shift {
+    transform: translateX(5px) !important;
+  }
+
+  /* Settlements Paragraphs Mobile-Only 3px Right Shift */
+  .settlements-para-mobile-shift {
+    transform: translateX(3px) !important;
+  }
+
+  /* Right-side Settlements Paragraphs Mobile-Only 3px Left Shift */
+  .settlements-right-para {
+    transform: translateX(-3px) !important;
+  }
+}

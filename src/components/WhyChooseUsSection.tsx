@@ -42,17 +42,14 @@ export default function WhyChooseUsSection() {
 
   return (
     <section
-      className="relative w-full min-h-screen bg-black overflow-hidden flex items-center py-24 md:py-32"
+      className="relative w-full min-h-screen bg-black overflow-hidden flex items-center py-24 md:py-32 why-choose-us-section"
       style={{
         backgroundImage: "radial-gradient(circle at 70% 50%, rgba(0, 230, 167, 0.05) 0%, transparent 60%)"
       }}
     >
       {/* Background Image (Covered and centered, phone shows in center/right on desktop) */}
       <div
-        className="absolute inset-0 w-full h-full bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none z-0"
-        style={{
-          backgroundImage: "url('/pg1.webp')",
-        }}
+        className="absolute inset-0 w-full h-full bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none z-0 why-choose-us-bg"
       />
 
       {/* Dark overlay to ensure text readability */}
@@ -65,12 +62,12 @@ export default function WhyChooseUsSection() {
 
           {/* Left Column: Text & Headings (5 columns on desktop) */}
           <motion.div
-            className="lg:col-span-5 flex flex-col items-start"
+            className="lg:col-span-5 flex flex-col items-start why-choose-us-left-col"
             style={{ paddingLeft: '30px' }}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <motion.div
               className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#00E6A7]/20 bg-[#00E6A7]/5 rounded font-['Outfit'] text-xs font-semibold tracking-[0.15em] uppercase text-[#00E6A7] mb-6"
@@ -102,27 +99,13 @@ export default function WhyChooseUsSection() {
             variants={rightCardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, amount: 0.1 }}
           >
-            <div
-              style={{
-                width: "100%",
-                maxWidth: "350px",
-                marginLeft: "auto",
-                marginRight: "30px",
-                background: "rgba(255, 255, 255, 0.04)",
-                backdropFilter: "blur(18px)",
-                WebkitBackdropFilter: "blur(18px)",
-                border: "1px solid rgba(255, 255, 255, 0.08)",
-                borderRadius: "24px",
-                boxShadow: "0 20px 60px rgba(0, 0, 0, 0.35)",
-                padding: "28px",
-              }}
-            >
+            <div className="why-choose-us-card">
 
 
               {/* Feature List with hover transformations */}
-              <div className="flex flex-col gap-y-[12px] w-full">
+              <div className="why-choose-us-points w-full">
                 {cardPoints.map((point, index) => (
                   <div
                     key={index}
@@ -137,7 +120,7 @@ export default function WhyChooseUsSection() {
                     />
                     {/* Feature Text (14.5px, line-height 1.7) */}
                     <span
-                      className="font-['Sora'] text-[14.5px] font-medium text-white/90 leading-[1.7] transition-transform duration-[250ms] group-hover:translate-x-1"
+                      className="font-['Sora'] font-medium text-white/90 why-choose-us-point-text transition-transform duration-[250ms] group-hover:translate-x-1"
                     >
                       {point}
                     </span>

@@ -30,10 +30,10 @@ export default function FinPayOperationalSupportSection() {
         <div className="relative w-full max-w-[1100px] mx-auto">
 
           {/* Step Nodes Row */}
-          <div className="relative z-10 w-full flex items-start justify-between">
-            {/* Horizontal Connection Line */}
+          <div className="relative z-10 w-full flex items-start justify-between service05-timeline-row">
+            {/* Horizontal / Vertical Connection Line */}
             <div
-              className="absolute left-[9%] right-[9%] z-0 pointer-events-none"
+              className="absolute left-[9%] right-[9%] z-0 pointer-events-none service05-line"
               style={{
                 backgroundColor: '#00E6A7',
                 opacity: 0.35,
@@ -43,11 +43,11 @@ export default function FinPayOperationalSupportSection() {
               }}
             ></div>
 
-            {/* Step 1: E-Commerce Businesses */}
-            <div className="relative flex flex-col items-center w-[18%] text-center group">
+            {/* Step 1: E-Commerce Businesses (Odd: Text Left on Mobile) */}
+            <div className="relative flex flex-col items-center w-[18%] text-center group service05-step service05-step-odd">
               {/* Outline Circle Icon Badge */}
               <div
-                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0"
+                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0 service05-icon"
                 style={{
                   width: '48px',
                   height: '48px',
@@ -62,20 +62,22 @@ export default function FinPayOperationalSupportSection() {
               >
                 <ShoppingCart style={{ width: '22px', height: '22px', color: '#00E6A7' }} />
               </div>
-              <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
-                E-Commerce Businesses
-              </h3>
-              <br />
-              <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Frictionless global checkout and automated merchant payouts
-              </p>
+              <div className="service05-text">
+                <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
+                  E-Commerce Businesses
+                </h3>
+                <br className="desktop-only-br" />
+                <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px] service05-para">
+                  Frictionless global checkout and automated merchant payouts
+                </p>
+              </div>
             </div>
 
-            {/* Step 2: Digital Merchants */}
-            <div className="relative flex flex-col items-center w-[18%] text-center group">
+            {/* Step 2: Digital Merchants (Even: Text Right on Mobile) */}
+            <div className="relative flex flex-col items-center w-[18%] text-center group service05-step service05-step-even">
               {/* Outline Circle Icon Badge */}
               <div
-                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0"
+                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0 service05-icon"
                 style={{
                   width: '48px',
                   height: '48px',
@@ -90,20 +92,22 @@ export default function FinPayOperationalSupportSection() {
               >
                 <Cpu style={{ width: '22px', height: '22px', color: '#00E6A7' }} />
               </div>
-              <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
-                Digital Merchants
-              </h3>
-              <br />
-              <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Powerful developer APIs for subscription and SaaS billing
-              </p>
+              <div className="service05-text">
+                <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
+                  Digital Merchants
+                </h3>
+                <br className="desktop-only-br" />
+                <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px] service05-para">
+                  Powerful developer APIs for subscription and SaaS billing
+                </p>
+              </div>
             </div>
 
-            {/* Step 3: International Suppliers */}
-            <div className="relative flex flex-col items-center w-[18%] text-center group">
+            {/* Step 3: International Suppliers (Odd: Text Left on Mobile) */}
+            <div className="relative flex flex-col items-center w-[18%] text-center group service05-step service05-step-odd">
               {/* Outline Circle Icon Badge */}
               <div
-                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0"
+                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0 service05-icon"
                 style={{
                   width: '48px',
                   height: '48px',
@@ -118,20 +122,22 @@ export default function FinPayOperationalSupportSection() {
               >
                 <Factory style={{ width: '22px', height: '22px', color: '#00E6A7' }} />
               </div>
-              <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
-                International Suppliers
-              </h3>
-              <br />
-              <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                High-volume B2B payments and flexible supply chain financing
-              </p>
+              <div className="service05-text">
+                <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
+                  International Suppliers
+                </h3>
+                <br className="desktop-only-br" />
+                <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px] service05-para">
+                  High-volume B2B payments and flexible supply chain financing
+                </p>
+              </div>
             </div>
 
-            {/* Step 4: Global Payment Operations */}
-            <div className="relative flex flex-col items-center w-[18%] text-center group">
+            {/* Step 4: Global Payment Operations (Even: Text Right on Mobile) */}
+            <div className="relative flex flex-col items-center w-[18%] text-center group service05-step service05-step-even">
               {/* Outline Circle Icon Badge */}
               <div
-                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0"
+                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0 service05-icon"
                 style={{
                   width: '48px',
                   height: '48px',
@@ -146,20 +152,22 @@ export default function FinPayOperationalSupportSection() {
               >
                 <Network style={{ width: '22px', height: '22px', color: '#00E6A7' }} />
               </div>
-              <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
-                Global Payment Operations
-              </h3>
-              <br />
-              <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Multi-entity treasury control and automated smart routing
-              </p>
+              <div className="service05-text">
+                <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
+                  Global Payment Operations
+                </h3>
+                <br className="desktop-only-br" />
+                <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px] service05-para">
+                  Multi-entity treasury control and automated smart routing
+                </p>
+              </div>
             </div>
 
-            {/* Step 5: Cross-Border Enterprises */}
-            <div className="relative flex flex-col items-center w-[18%] text-center group">
+            {/* Step 5: Cross-Border Enterprises (Odd: Text Left on Mobile) */}
+            <div className="relative flex flex-col items-center w-[18%] text-center group service05-step service05-step-odd">
               {/* Outline Circle Icon Badge */}
               <div
-                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0"
+                className="rounded-full shadow-[0_0_12px_rgba(0,230,167,0.1)] group-hover:border-[#00E6A7] group-hover:shadow-[0_0_16px_rgba(0,230,167,0.25)] group-hover:scale-105 transition-all duration-300 flex-shrink-0 service05-icon"
                 style={{
                   width: '48px',
                   height: '48px',
@@ -174,12 +182,15 @@ export default function FinPayOperationalSupportSection() {
               >
                 <Globe style={{ width: '22px', height: '22px', color: '#00E6A7' }} />
               </div>
-              <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
-                Cross-Border Enterprises
-              </h3>
-              <br />
-              <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px]">
-                Enterprise-grade global payouts with real-time FX management.            </p>
+              <div className="service05-text">
+                <h3 className="font-['Outfit'] font-bold text-[1.05rem] text-white tracking-wide mb-2 leading-snug">
+                  Cross-Border Enterprises
+                </h3>
+                <br className="desktop-only-br" />
+                <p className="font-['Sora'] text-[0.75rem] text-zinc-400 leading-relaxed max-w-[150px] service05-para">
+                  Enterprise-grade global payouts with real-time FX management.
+                </p>
+              </div>
             </div>
           </div>
 

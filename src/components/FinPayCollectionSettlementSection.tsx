@@ -11,10 +11,10 @@ export default function FinPayCollectionSettlementSection() {
       <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[60vh] gap-12">
 
         {/* Main Grid Layout - side-by-side on all viewports */}
-        <div className="w-full grid grid-cols-12 gap-8 md:gap-12 items-center my-auto">
+        <div className="w-full grid grid-cols-12 gap-8 md:gap-12 items-center my-auto collection-grid-parent">
 
-          {/* LEFT COLUMN: Text Header & Feature Cards shifted 70px to the right */}
-          <div className="col-span-6 flex flex-col gap-6 md:gap-8 text-left w-full pl-[70px]">
+          {/* LEFT COLUMN: Header & description */}
+          <div className="col-span-6 flex flex-col gap-6 md:gap-8 text-left w-full pl-[70px] collection-header-block">
             <br />
             <br />
             <br />
@@ -28,17 +28,40 @@ export default function FinPayCollectionSettlementSection() {
                 Payment Collection &<br />Settlement
               </h2>
             </div>
-            <br />
             <p className="font-['Sora'] text-[0.85rem] md:text-[0.92rem] leading-relaxed text-zinc-400 max-w-[600px]">
               Automate the lifecycle of every transaction. Our settlement engine utilizes neural traces to track, verify, and consolidate payments from multiple origins into a unified digital vault.
             </p>
-            <br />
+          </div>
+          <br />
+          {/* RIGHT COLUMN: Service 2 Image with Seesaw Animation */}
+          <div className="col-span-6 flex items-center justify-center w-full collection-image-block">
+            <motion.div
+              animate={{
+                rotate: [-3, 3, -3],
+                x: [-12, 12, -12]
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-full flex justify-center"
+            >
+              <img
+                src="/service2.webp"
+                alt="Service 2 Graphic"
+                className="w-full max-w-[500px] object-contain select-none pointer-events-none"
+              />
+            </motion.div>
+          </div>
+          <br />
+          {/* LEFT COLUMN: Feature Cards Grid */}
+          <div className="col-span-6 pl-[70px] collection-boxes-block">
             {/* Grid of 4 feature cards - 2x2 rectangular card layout */}
             <div
-              className="grid grid-cols-2 mt-4 w-full max-w-[480px] md:max-w-[540px]"
+              className="grid grid-cols-2 mt-4 w-full max-w-[430px] md:max-w-[540px] collection-boxes-grid"
               style={{ gap: '20px' }}
             >
-
               {/* Card 1: Real-time */}
               <div
                 className="relative rounded-2xl border border-zinc-800/45 border-l-[3px] border-l-[#00E6A7] bg-white/[0.01] hover:bg-white/[0.02] shadow-[0_4px_24px_rgba(0,0,0,0.5)] transition-all duration-300 group flex flex-col justify-center"
@@ -116,29 +139,6 @@ export default function FinPayCollectionSettlementSection() {
               </div>
 
             </div>
-
-          </div>
-
-          {/* RIGHT COLUMN: Service 2 Image with Seesaw Animation */}
-          <div className="col-span-6 flex items-center justify-center w-full">
-            <motion.div
-              animate={{
-                rotate: [-3, 3, -3],
-                x: [-12, 12, -12]
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="w-full flex justify-center"
-            >
-              <img
-                src="/service2.webp"
-                alt="Service 2 Graphic"
-                className="w-full max-w-[500px] object-contain select-none pointer-events-none"
-              />
-            </motion.div>
           </div>
 
         </div>

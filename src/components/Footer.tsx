@@ -20,7 +20,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#000000] text-white pb-24 px-6 md:px-12 relative z-10 font-sans" style={{ paddingTop: '64px' }}>
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full footer-mobile-shift">
 
         {/* Top Section: 4-Column Grid using stable CSS classes */}
         <motion.div

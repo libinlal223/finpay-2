@@ -2,7 +2,7 @@ export default function FinPayExchangeServicesSection() {
   return (
     <section className="relative w-full min-h-[65vh] text-[#e8f0ee] py-22 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black flex items-center justify-center">
 
-      <div className="max-w-[1400px] w-full mx-auto relative z-10 flex flex-col items-center justify-between min-h-[60vh] gap-12">
+      <div className="max-w-[1400px] w-full mx-auto relative z-10 flex flex-col items-center justify-between min-h-[60vh] gap-12 exchange-services-inner">
 
         {/* ========================================================= */}
         {/* HEADER                                                    */}
@@ -38,7 +38,8 @@ export default function FinPayExchangeServicesSection() {
 
           {/* RIGHT COLUMN: Description & Features */}
           <div className="col-span-6 flex flex-col gap-6 text-left w-full">
-
+            <br />
+            <br />
             <div className="flex flex-col gap-2">
               <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
                 SERVICE 01

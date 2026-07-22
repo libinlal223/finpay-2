@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, useMotionValueEvent, MotionValue } from "framer-motion";
+import { motion, MotionValue } from "framer-motion";
 import { Home, User, Settings, PhoneCall } from "lucide-react";
 
 interface NavItem {
@@ -16,21 +16,21 @@ const navItems: NavItem[] = [
 ];
 
 interface NavbarProps {
-  scrollYProgress: MotionValue<number>;
+  scrollYProgress?: MotionValue<number>;
 }
 
-export default function Navbar({ scrollYProgress }: NavbarProps) {
+export default function Navbar({ scrollYProgress: _ }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("home");
-  const [isVisible, setIsVisible] = useState(scrollYProgress.get() >= 0.90);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Sync visibility with Framer Motion scroll progress accurately
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setIsVisible(latest >= 0.90);
-  });
+  useEffect(() => {
+    // Show navbar after brief delay on load for entrance effect
+    const timer = setTimeout(() => setIsVisible(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY;
       const windowHeight = window.innerHeight;
 
       // Select layout elements
@@ -48,22 +48,15 @@ export default function Navbar({ scrollYProgress }: NavbarProps) {
 
       let currentActive = "home";
 
-      const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top + scrollPos : 0;
-      const isPastStorytelling = aboutTop > 0 && scrollPos >= aboutTop - windowHeight * 0.5;
-
-      if (isPastStorytelling) {
-        for (const section of sections) {
-          if (section.el) {
-            const rect = section.el.getBoundingClientRect();
-            // Section is active if it occupies the top-middle focal area of the viewport
-            if (rect.top <= windowHeight * 0.4 && rect.bottom > windowHeight * 0.4) {
-              currentActive = section.id;
-              break;
-            }
+      for (const section of sections) {
+        if (section.el) {
+          const rect = section.el.getBoundingClientRect();
+          // Check if section is currently active in viewport
+          if (rect.top <= windowHeight * 0.4 && rect.bottom > windowHeight * 0.4) {
+            currentActive = section.id;
+            break;
           }
         }
-      } else {
-        currentActive = "home";
       }
 
       setActiveSection(currentActive);
@@ -77,8 +70,7 @@ export default function Navbar({ scrollYProgress }: NavbarProps) {
 
   const handleNavClick = (id: string) => {
     if (id === "home") {
-      const windowHeight = window.innerHeight;
-      window.scrollTo({ top: windowHeight * 14.4, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       const el = document.getElementById(id);
       if (el) {

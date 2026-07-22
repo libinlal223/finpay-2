@@ -22,7 +22,7 @@ export default function FinPayBusinessSolutionsSection() {
         </div>
         <br />
         {/* 1 Row of 5 Columns Layout with Guaranteed Gap */}
-        <div className="grid grid-cols-5 w-full max-w-[1320px] mx-auto mt-4" style={{ gap: '24px' }}>
+        <div className="grid grid-cols-5 w-full max-w-[1320px] mx-auto mt-4 business-solutions-grid" style={{ gap: '24px' }}>
 
           {/* Card 1: E-Commerce */}
           <div className="relative rounded-[28px] border border-[#00E6A7]/20 bg-[#070707] py-16 px-6 flex flex-col items-center text-center shadow-[0_0_20px_rgba(0,230,167,0.05),inset_0_1px_1px_rgba(255,255,255,0.02)] hover:border-[#00E6A7]/45 hover:shadow-[0_0_30px_rgba(0,230,167,0.18),inset_0_1px_1px_rgba(255,255,255,0.04)] transition-all duration-300 group">

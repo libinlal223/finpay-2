@@ -1,9 +1,9 @@
 
 export default function FinPaySettlementsSection() {
   return (
-    <section className="relative w-full min-h-screen text-[#e8f0ee] py-20 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black">
+    <section className="relative w-full min-h-fit md:min-h-screen text-[#e8f0ee] about-finpay-section pb-20 px-4 md:px-8 xl:px-12 selection:bg-[#00ff9d]/30 overflow-hidden bg-black">
 
-      <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center justify-between min-h-[85vh] gap-12">
+      <div className="max-w-[1400px] mx-auto relative z-10 flex flex-col items-center justify-start md:justify-between min-h-0 md:min-h-[85vh] gap-8 md:gap-12">
 
         {/* ========================================================= */}
         {/* HEADER                                                    */}
@@ -36,14 +36,14 @@ export default function FinPaySettlementsSection() {
           <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-center justify-center z-20 relative px-4 md:px-8 xl:px-12 pointer-events-none">
 
             {/* LEFT SIDE: Developers/Platform Features */}
-            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto transform translate-x-[40px]">
+            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto settlements-left-col">
 
               {/* Item 01 */}
-              <div className="flex gap-4 items-start group">
+              <div className="flex gap-4 items-start group settlements-first-para-item">
                 <div>
 
-                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px]">
-                    FINPAY is a global digital payment and settlement solutions <br className="hidden md:inline" /> provider specializing in stablecoin- <br className="hidden md:inline" /> based financial infrastructure and international support.
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] settlements-para-mobile-shift">
+                    FINPAY is a global digital payment and settlement solutions <br className="hidden md:inline" /> provider specializing in stablecoin- <br className="hidden md:inline" /> based infrastructure and international support.
                   </p>
                 </div>
               </div>
@@ -52,8 +52,8 @@ export default function FinPaySettlementsSection() {
               <div className="flex gap-4 items-start group">
                 <div>
 
-                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px]">
-                    We help businesses simplify cross-border payments, <br className="hidden md:inline" /> merchant settlements, and multi-currency exchange <br className="hidden md:inline" /> operations through secure and efficient USDT-based solutions.
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] settlements-para-mobile-shift">
+                    We help businesses simplify cross-border payments, <br className="hidden md:inline" /> merchant settlements, and multi-currency exchanges
                   </p>
                 </div>
               </div>
@@ -64,26 +64,26 @@ export default function FinPaySettlementsSection() {
             <div className="hidden md:block col-span-4 h-full pointer-events-none" />
 
             {/* RIGHT SIDE: Enterprise/Ecosystem Features */}
-            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto text-right transform -translate-x-[40px]">
+            <div className="col-span-1 md:col-span-4 flex flex-col gap-8 py-6 pointer-events-auto settlements-right-col">
               <div className="mb-2">
 
               </div>
-
+              <br />
+              <br />
+              <br />
               {/* Item 01 */}
-              <div className="flex gap-4 items-start justify-end group">
+              <div className="flex gap-4 items-start group settlements-right-item">
                 <div>
-                  <br /><br />
-                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] ml-auto">
-                    Our services are designed for businesses <br /> requiring faster settlements, international payment <br /> flexibility, and scalable operations.
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] settlements-right-para">
+                    Our services are designed for businesses <br className="hidden md:inline" /> requiring faster settlements, international payment <br className="hidden md:inline" /> flexibility, and scalable operations.
                   </p>
                 </div>
               </div>
               <br />
               {/* Item 02 */}
-              <div className="flex gap-4 items-start justify-end group">
+              <div className="flex gap-4 items-start group settlements-right-item">
                 <div>
-
-                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] ml-auto">
+                  <p className="font-['Sora'] text-[0.95rem] md:text-[1.02rem] leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors max-w-[420px] settlements-right-para">
                     FINPAY supports merchants, e-commerce, <br className="hidden md:inline" /> and trading partners with reliable <br className="hidden md:inline" /> payment collection systems and global currency exchange capabilities.
                   </p>
                 </div>
