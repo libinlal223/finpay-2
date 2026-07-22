@@ -10,11 +10,11 @@ import LoadingScreen from './LoadingScreen';
 // CONFIG
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Total frames extracted: 8.13s × 24fps = 202 */
-const TOTAL_FRAMES  = 202;
+/** Total frames extracted at 18 FPS: 8.45s × 18fps = 152 */
+const TOTAL_FRAMES  = 152;
 
-/** Determine initial preload count based on screen width: 100 for desktop, 60 for mobile */
-const getPreloadCount = () => (window.innerWidth >= 768 ? 100 : 60);
+/** Preload count: load 100% of frames (152) upfront on all devices */
+const getPreloadCount = () => TOTAL_FRAMES;
 
 /** URL for frame N (1-based, zero-padded to 4 digits) */
 const frameSrc = (n: number) =>

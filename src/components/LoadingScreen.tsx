@@ -36,12 +36,7 @@ export default function LoadingScreen({ progress, isComplete }: LoadingScreenPro
 
       {/* Content Box */}
       <div className="relative z-10 flex flex-col items-center text-center px-6">
-        {/* Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 border border-white/10 bg-white/[0.02] rounded font-['Outfit'] text-xs font-medium tracking-[0.2em] uppercase text-white/80">
-          <span className="text-[#00E6A7]">[</span>
-          <span>FinPay Ecosystem</span>
-          <span className="text-[#00E6A7]">]</span>
-        </div>
+
 
         {/* Large Shiny Percentage Counter */}
         <div className="shiny-text font-numbers text-6xl md:text-8xl font-[800] tracking-tight mb-8">

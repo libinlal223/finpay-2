@@ -10,11 +10,7 @@ export default function HeroSection() {
         <p className="mt-6 max-w-[480px] text-[1.1rem] leading-[1.6] text-white/65 tracking-[-0.02em]">
           Built for businesses, designed for growth, and engineered for the future of financial connectivity.
         </p>
-        <div className="mt-8 inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/10 bg-white/[0.02] rounded font-['Outfit'] text-xs font-medium tracking-[0.15em] uppercase text-white/90">
-          <span className="text-[#00E6A7]/70">[</span>
-          <span>Finpay Ecosystem</span>
-          <span className="text-[#00E6A7]/70">]</span>
-        </div>
+
       </div>
 
       {/* Stats Card - Bottom Right */}

@@ -24,14 +24,13 @@ export default function Navbar({ scrollYProgress: _ }: NavbarProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show navbar after brief delay on load for entrance effect
-    const timer = setTimeout(() => setIsVisible(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+
+      // Section 5 threshold: Navbar appears starting from Section 5 onwards
+      const section5Threshold = windowHeight * 3.5;
+      setIsVisible(scrollY >= section5Threshold);
 
       // Select layout elements
       const homeEl = document.getElementById("home");
