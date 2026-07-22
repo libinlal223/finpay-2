@@ -18,7 +18,7 @@ const getPreloadCount = () => TOTAL_FRAMES;
 
 /** URL for frame N (1-based, zero-padded to 4 digits) */
 const frameSrc = (n: number) =>
-  `/frames/frame_${String(n).padStart(4, '0')}.jpg`;
+  `/frames/frame_${String(n).padStart(4, '0')}.webp`;
 
 /**
  * Scroll-progress ranges [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd] over [0..1].
