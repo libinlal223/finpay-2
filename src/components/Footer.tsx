@@ -131,43 +131,19 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a href="#payments" className="footer-link">
-                Cross-Border Payments
+                USDT Exchange Services
               </a>
               <a href="#settlement" className="footer-link">
-                Multi-Currency Settlement
-              </a>
+                Payment Collection &
+                Settlement              </a>
               <a href="#treasury" className="footer-link">
-                Treasury Solutions
+                Multi Currency Exchange
               </a>
               <a href="#gateway" className="footer-link">
-                Payment Gateway
+                Business Solutions
               </a>
               <a href="#api" className="footer-link">
-                API Integration
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Column 4: Resources */}
-          <motion.div className="footer-column-align flex flex-col items-start" variants={itemVariants}>
-            <h4 className="footer-heading">
-              Resources
-            </h4>
-            <div className="flex flex-col gap-4">
-              <a href="#docs" className="footer-link">
-                Documentation
-              </a>
-              <a href="#security" className="footer-link">
-                Security
-              </a>
-              <a href="#privacy" className="footer-link">
-                Privacy Policy
-              </a>
-              <a href="#terms" className="footer-link">
-                Terms
-              </a>
-              <a href="#support" className="footer-link">
-                Support
+                Payment Gateway Onboarding
               </a>
             </div>
           </motion.div>

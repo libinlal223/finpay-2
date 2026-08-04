@@ -9,28 +9,28 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What is FINPAY and how does it support cross-border settlements?",
-    answer: "FINPAY is an enterprise-grade financial infrastructure protocol enabling real-time cross-border clearing, settlement, and treasury management. We bypass complex intermediary networks to connect local clearing corridors directly, facilitating seamless multi-currency settlements with institutional liquidity.",
+    question: "What is FINPAY?",
+    answer: "FinPay is a cross-border payment and payment gateway platform that enables businesses to collect payments, settle funds efficiently, and manage international payment operations with secure and reliable infrastructure.",
   },
   {
-    question: "Which currencies and settlement corridors do you support?",
-    answer: "We support key global clearing currencies including USD, EUR, GBP, SGD, AED, and INR across 80+ corridors covering North America, South America, Europe, the Middle East, India, and Southeast Asia.",
+    question: "Which payment methods are supported?",
+    answer: "Depending on your approved account and integration, FinPay supports multiple payment collection methods and bank transfer solutions."
   },
   {
-    question: "What are the typical settlement times?",
-    answer: "Settlement times range from instant (real-time) to T+1 depending on the clearing corridor, currency pair, and time-of-day. This represents a significant acceleration over traditional SWIFT-based multi-day clearing routes.",
+    question: "What currencies are supported?",
+    answer: "Supported currencies depend on the merchant’s approved services and operating regions. Please contact our team for specific availability.",
   },
   {
-    question: "How secure are FINPAY transactions?",
-    answer: "FINPAY incorporates bank-grade security protocols, including end-to-end data encryption, secure hardware security modules (HSMs), and strict compliance with international AML/KYC standards. Every transaction is monitored in real-time by automated transaction screening engines.",
+    question: "Is there a minimum or maximum transaction limit?",
+    answer: "Transaction limits vary based on merchant profile, verification level, and approved business category.",
   },
   {
-    question: "Can FINPAY integrate with our ERP or existing payment systems?",
-    answer: "Yes, FINPAY provides developer-friendly REST APIs, SDKs, and ready-made webhooks designed to integrate directly with major enterprise ERP systems, treasury portals, and standard banking core systems.",
+    question: "How do I become a merchant?",
+    answer: "Simply click Get Started or Contact Sales, submit your business information, complete verification, and our onboarding team will guide you through the process.",
   },
   {
-    question: "Is there a minimum transaction volume?",
-    answer: "FINPAY is optimized for high-volume digital merchants, cross-border businesses, and financial institutions. While there are standard commercial guidelines, we configure custom clearing tiers and thresholds based on your operational volume.",
+    question: "Does FinPay support cryptocurrency payments?",
+    answer: "Yes. FinPay supports cryptocurrency-based settlement solutions for eligible business clients. We facilitate digital asset payment workflows in accordance with applicable laws, regulations, and our compliance requirements.",
   },
 ];
 

@@ -241,7 +241,7 @@ export default function CryptoMarketSection() {
   const box2Index = ((Math.floor(step / 2) * 2) + 1) % COIN_KEYS.length;
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black flex items-center justify-center px-4 md:px-[6vw] py-24 z-10">
+    <section className="relative min-h-screen w-full overflow-hidden bg-black flex items-center justify-center px-5 sm:px-6 md:px-[6vw] py-24 z-10">
 
       <div
         className="relative z-10 w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16"
