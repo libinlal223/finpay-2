@@ -267,22 +267,22 @@ export default function ScrollVideoScene() {
       const touchEndY = e.touches[0].clientY;
       const deltaY = touchStartY - touchEndY;
 
-      if (Math.abs(deltaY) < 30) return; // 30px swipe threshold
-
       if (deltaY > 0) {
-        // Swiping UP -> Scroll DOWN action
+        // Swiping UP -> Scroll DOWN action in hero section
         if (currentIndex < SECTION_FRAMES.length - 1) {
           if (e.cancelable) e.preventDefault();
-          if (!isAnimating && Date.now() >= cooldownUntil) {
+          if (Math.abs(deltaY) >= 25 && !isAnimating && Date.now() >= cooldownUntil) {
             touchStartY = touchEndY;
             gotoSection(currentIndex + 1);
           }
         }
+        // At last hero section (currentIndex === SECTION_FRAMES.length - 1),
+        // e.preventDefault() is not called so default scroll proceeds down the page
       } else if (deltaY < 0) {
-        // Swiping DOWN -> Scroll UP action
+        // Swiping DOWN -> Scroll UP action in hero section
         if (currentIndex > 0) {
           if (e.cancelable) e.preventDefault();
-          if (!isAnimating && Date.now() >= cooldownUntil) {
+          if (Math.abs(deltaY) >= 25 && !isAnimating && Date.now() >= cooldownUntil) {
             touchStartY = touchEndY;
             gotoSection(currentIndex - 1);
           }

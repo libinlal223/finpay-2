@@ -10,14 +10,14 @@ export default function FinPayMultiCurrencyExchangeSection() {
 
       <div className="mx-auto max-w-[1440px] w-full relative z-10 flex flex-col items-center justify-center min-h-[45vh] gap-12">
 
-        {/* Main Grid Layout - side-by-side on all viewports */}
-        <div className="w-full grid grid-cols-12 gap-8 md:gap-12 items-center my-auto">
+        {/* Main Grid Layout - side-by-side on desktop, stacked on mobile */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center my-auto">
 
           {/* LEFT COLUMN: 8-Orbit Solar System Currency Animation */}
-          <div className="col-span-6 flex items-center justify-center w-full relative min-h-[500px] md:min-h-[540px] service03-mobile-orbit">
+          <div className="col-span-1 md:col-span-6 flex items-center justify-center w-full relative min-h-[360px] md:min-h-[540px] overflow-hidden">
 
-            {/* Orbit Container with even larger scale multipliers for a bigger layout representation */}
-            <div className="relative w-[800px] h-[800px] flex items-center justify-center select-none scale-[0.6] sm:scale-[0.8] md:scale-[0.98] lg:scale-[1.18] xl:scale-[1.38] 2xl:scale-[1.55] origin-center">
+            {/* Orbit Container with scale multipliers */}
+            <div className="relative w-[800px] h-[800px] flex items-center justify-center select-none scale-[0.42] xs:scale-[0.5] sm:scale-[0.8] md:scale-[0.98] lg:scale-[1.18] xl:scale-[1.38] 2xl:scale-[1.55] origin-center">
 
               {/* Concentric Orbit Rings and Orbiting Nodes */}
               {[
@@ -74,7 +74,7 @@ export default function FinPayMultiCurrencyExchangeSection() {
           </div>
 
           {/* RIGHT COLUMN: Text Content & Stacked Cards */}
-          <div className="col-span-6 flex flex-col gap-6 md:gap-8 text-left w-full pl-0 md:pl-[50px] service03-mobile-shift">
+          <div className="col-span-1 md:col-span-6 flex flex-col gap-6 md:gap-8 text-left w-full pl-0 md:pl-[50px]">
 
             {/* Header info */}
             <div className="flex flex-col gap-3">
@@ -85,16 +85,15 @@ export default function FinPayMultiCurrencyExchangeSection() {
                 Multi Currency Exchange
               </h2>
             </div>
-            <br />
-            <p className="font-['Sora'] text-[0.88rem] md:text-[0.95rem] leading-relaxed text-zinc-400 tracking-wide max-w-[500px] service03-mobile-paragraph">
+            <p className="font-['Sora'] text-[0.88rem] md:text-[0.95rem] leading-relaxed text-zinc-400 tracking-wide max-w-[500px]">
               A global network built exchange USDT into multiple international currencies with competitive rates and reliable processing.
             </p>
 
-            <div className="flex flex-col gap-2 mt-1 max-w-[500px] service03-mobile-currencies">
+            <div className="flex flex-col gap-2 mt-1 max-w-[500px]">
               <span className="font-['Outfit'] font-bold text-[0.85rem] md:text-[0.9rem] text-zinc-200 uppercase tracking-widest text-[#00E6A7]/80 block">
                 Supported Currencies
               </span>
-              <div className="grid grid-cols-2 gap-x-12 gap-y-3.5 border-l border-zinc-800/80 pl-4 py-1">
+              <div className="grid grid-cols-2 gap-x-6 sm:gap-x-12 gap-y-3.5 border-l border-zinc-800/80 pl-4 py-1">
                 {[
                   { name: "Indian Rupee", code: "INR" },
                   { name: "UAE Dirham", code: "AED" },
@@ -121,9 +120,9 @@ export default function FinPayMultiCurrencyExchangeSection() {
                 ))}
               </div>
             </div>
-            <br />
+
             {/* Vertical Stack of Horizontal Cards with spacious design and thin borders */}
-            <div className="flex flex-col w-full max-w-[480px] mt-8">
+            <div className="flex flex-col w-full max-w-[480px] mt-4 md:mt-8">
 
               {/* Card 1: Global Reach */}
               <div className="premium-feature-card group">

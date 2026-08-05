@@ -8,15 +8,6 @@ export default function FinPayExchangeServicesSection() {
         {/* HEADER                                                    */}
         {/* ========================================================= */}
         <div className="text-center w-full mt-4">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <h2 className="font-['Outfit'] font-extrabold text-[clamp(2.5rem,5vw,3.8rem)] tracking-tight leading-tight mt-2 uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00E6A7] to-[#00D4FF] filter drop-shadow-[0_0_15px_rgba(0,230,167,0.3)]">
             GLOBAL PAYMENT SOLUTIONS
           </h2>
@@ -25,10 +16,10 @@ export default function FinPayExchangeServicesSection() {
         {/* ========================================================= */}
         {/* MAIN LAYOUT                                               */}
         {/* ========================================================= */}
-        <div className="w-full grid grid-cols-12 gap-8 md:gap-12 items-center px-4 md:px-12 my-auto">
+        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center px-4 md:px-12 my-auto">
 
           {/* LEFT COLUMN: Exchange Corridors Image */}
-          <div className="col-span-6 flex items-center justify-center w-full">
+          <div className="col-span-1 md:col-span-6 flex items-center justify-center w-full">
             <img
               src="/usdtex.webp"
               alt="USDT Exchange Corridors"
@@ -37,9 +28,7 @@ export default function FinPayExchangeServicesSection() {
           </div>
 
           {/* RIGHT COLUMN: Description & Features */}
-          <div className="col-span-6 flex flex-col gap-6 text-left w-full">
-            <br />
-            <br />
+          <div className="col-span-1 md:col-span-6 flex flex-col gap-6 text-left w-full">
             <div className="flex flex-col gap-2">
               <span className="font-digital text-[0.80rem] md:text-[0.8rem] font-bold tracking-[0.25em] text-[#00E6A7] uppercase block terminal-text-glow">
                 SERVICE 01
@@ -48,7 +37,6 @@ export default function FinPayExchangeServicesSection() {
                 USDT Exchange Services
               </h2>
             </div>
-            <br />
             <p className="font-['Sora'] text-[0.88rem] md:text-[0.95rem] leading-relaxed text-zinc-400 tracking-wide">
               Fast and reliable USDT exchange services with competitive market pricing and high-volume liquidity support.
             </p>

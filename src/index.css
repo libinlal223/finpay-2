@@ -712,8 +712,8 @@ p {
 }
 
 .about-finpay-section {
-  margin-top: 132px !important;
-  padding-top: 53px !important;
+  margin-top: 40px !important;
+  padding-top: 40px !important;
 }
 
 @media (min-width: 768px) {
@@ -789,7 +789,7 @@ p {
     max-width: 290px !important;
     margin: 0 auto !important;
     padding: 16px 18px !important;
-    margin-top: 160px !important;
+    margin-top: 40px !important;
     margin-bottom: 40px !important;
   }
 }
@@ -825,12 +825,6 @@ p {
 @media (min-width: 768px) {
   .why-choose-us-section {
     margin-top: 140px !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .exchange-services-inner {
-    transform: translateY(-20%) !important;
   }
 }
 
@@ -882,7 +876,6 @@ p {
     padding-left: 16px !important;
     padding-right: 16px !important;
     order: 1 !important;
-    transform: translateX(5px) !important;
   }
 
   .collection-image-block {
@@ -912,30 +905,7 @@ p {
   }
 }
 
-/* Service 03 Mobile-Only Shift */
 @media (max-width: 767px) {
-  .service03-mobile-shift {
-    transform: translateX(-160px) !important;
-  }
-
-  .service03-mobile-paragraph {
-    width: 75vw !important;
-    max-width: none !important;
-  }
-
-  .service03-mobile-currencies {
-    width: 75vw !important;
-    max-width: none !important;
-  }
-
-  .service03-mobile-currencies > .grid {
-    column-gap: 40px !important;
-  }
-
-  .service03-mobile-orbit {
-    transform: translateX(-140px) !important;
-  }
-
   /* Business Solutions Mobile-Only 3-Row Layout (2 + 2 + 1) */
   .business-solutions-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1027,21 +997,6 @@ p {
 
   .desktop-only-br {
     display: none !important;
-  }
-
-  /* Footer Mobile-Only 5px Right Shift */
-  .footer-mobile-shift {
-    transform: translateX(5px) !important;
-  }
-
-  /* Settlements Paragraphs Mobile-Only 3px Right Shift */
-  .settlements-para-mobile-shift {
-    transform: translateX(3px) !important;
-  }
-
-  /* Right-side Settlements Paragraphs Mobile-Only 3px Left Shift */
-  .settlements-right-para {
-    transform: translateX(-3px) !important;
   }
 }
 
