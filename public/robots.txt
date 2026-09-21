@@ -1,0 +1,9 @@
+# Allow all legitimate search crawlers
+User-agent: *
+Allow: /
+
+# Exclude internal dashboards or tracker directories
+Disallow: /tracker/
+
+# Sitemap location
+Sitemap: https://www.finpayzo.com/sitemap.xml

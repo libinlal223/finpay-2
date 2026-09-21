@@ -89,7 +89,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="mailto:support@finpay.com"
+                href="mailto:support@finpayzo.com"
                 className="footer-social-icon"
               >
                 <svg className="w-[22px] h-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
